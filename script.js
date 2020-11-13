@@ -1,8 +1,10 @@
-// Basic JavaScript: Use Bracket Notation to Find the Nth-to-Last Character in a String
-// To get the last letter of a string, you can subtract one from the string's length
-// Same principle used to retrieve the last character in a string can be used to retrieve the Nth-to-last character
+// Basic JavaScript: Basic JavaScript: Word Blanks
+// In this challenge, we provide you with a noun, a verb, an adjective and an adverb. You need to form a complete sentence using words of your choice, along with the words we provide.
 
-var lastName = "Lovelace";
+var myNoun = "dog";
+var myAdjective = "big";
+var myVerb = "ran";
+var myAdverb = "quickly";
 
-var secondToLastLetterOfLastName = lastName[lastName.length - 2];
-console.log(secondToLastLetterOfLastName);
+var wordBlanks = "It was really " + myAdjective + " " + myNoun + " , and we " + myVerb + " away " + myAdverb + "." ;
+console.log(wordBlanks);
