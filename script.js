@@ -1,7 +1,7 @@
-// Basic JavaScript: Use Bracket Notation to Find the Nth Character in a String
-// Bracket notation can be used to get the character at other positions within a string
+// Basic JavaScript: Use Bracket Notation to Find the Last Character in a String
+// To get the last letter of a string, you can subtract one from the string's length
 
 var lastName = "Lovelace";
 
-var thirdLetterOfLastName = lastName[2]; 
-console.log(thirdLetterOfLastName);
+var lastLetterOfLastName = lastName[lastName.length - 1];
+console.log(lastLetterOfLastName);
