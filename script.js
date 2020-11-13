@@ -1,10 +1,7 @@
-// Basic JavaScript:  Understand String Immutability
-// String values are immutable
-// Means that they cannot be altered once created.
-// Individual characters of a string literal cannot be changed
-// The only way to change myStr would be to assign it with a new string
+// Basic JavaScript: Use Bracket Notation to Find the Nth Character in a String
+// Bracket notation can be used to get the character at other positions within a string
 
-var myStr = "Jello World";
+var lastName = "Lovelace";
 
-myStr = "Hello World";
-console.log(myStr);
+var thirdLetterOfLastName = lastName[2]; 
+console.log(thirdLetterOfLastName);
