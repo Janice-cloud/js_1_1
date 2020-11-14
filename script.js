@@ -1,10 +1,7 @@
-// Basic JavaScript: Basic JavaScript: Word Blanks
-// In this challenge, we provide you with a noun, a verb, an adjective and an adverb. You need to form a complete sentence using words of your choice, along with the words we provide.
+// Basic JavaScript: Store Multiple Values in one Variable using JavaScript Arrays
+// JavaScript array variables, can store several pieces of data in one place
+// Start an array declaration with an opening square bracket, end it with a closing square bracket, and put a comma between each entry.
 
-var myNoun = "dog";
-var myAdjective = "big";
-var myVerb = "ran";
-var myAdverb = "quickly";
+var myArray = [ "Array", 1];
 
-var wordBlanks = "It was really " + myAdjective + " " + myNoun + " , and we " + myVerb + " away " + myAdverb + "." ;
-console.log(wordBlanks);
+console.log(myArray[0], myArray[1]);
