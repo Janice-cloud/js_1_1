@@ -1,7 +1,6 @@
-// Basic JavaScript: Store Multiple Values in one Variable using JavaScript Arrays
-// JavaScript array variables, can store several pieces of data in one place
-// Start an array declaration with an opening square bracket, end it with a closing square bracket, and put a comma between each entry.
+// Basic JavaScript: Nest one Array within Another Array
+// Multi-dimensional array : nest arrays within other arrays
 
-var myArray = [ "Array", 1];
+var myArray = [["Bulls", 23], ["White Sox", 45]];
 
 console.log(myArray[0], myArray[1]);
