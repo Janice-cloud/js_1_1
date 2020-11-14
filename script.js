@@ -1,10 +1,9 @@
-// Basic JavaScript: Access Multi-Dimensional Arrays With Indexes
-// Using brackets to access your array,
-// The first set of brackets refers to the entries in the outer-most (the first level) array
-// Each additional pair of brackets refers to the next level of entries inside.
+// Basic JavaScript: Manipulate Arrays With push()
+// An easy way to append data to the end of an array using the push() function.
+// .push() takes one or more parameters and "pushes" them onto the end of the array.
 
-var myArray = [[1,2,3], [4,5,6], [7,8,9], [[10,11,12], 13, 14]];
+var myArray = [["John", 23], ["cat", 2]];
 
-var myData = myArray[2][1];
+myArray.push(["dog", 3]);
 
-console.log(myData);
+console.log(myArray);
