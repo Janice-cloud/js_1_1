@@ -1,12 +1,29 @@
-// Basic JavaScript: Passing Values to Functions with Arguments
-// Parameters are variables that act as placeholders for the values that are to be input to a function when it is called
-// When a function is defined, it is typically defined along with one or more parameters. 
-// The actual values that are input (or "passed") into a function when it is called are known as arguments.
+// Basic JavaScript: Global Scope and Functions
+// Scope refers to the visibility of variables.
+// Global scope : Variables which are defined outside of a function block. This means, they can be seen everywhere in your JavaScript code.
+// Variables which are used without the var keyword are automatically created in the global scope
+// This can create unintended consequences elsewhere in your code or when running a function again
+// You should always declare your variables with var.
 
-function functionWithArgs(num1, num2) {
-    var sum = num1 + num2;
-    console.log(sum);
+// Declare the myGlobal 
+var myGlobal = 10;
+
+function fun1() {
+   oopsGlobal = 5; 
 }
 
-functionWithArgs(1, 2);
+function fun2() {
+  var output = "";
+  if (typeof myGlobal != "undefined") {
+    output += "myGlobal: " + myGlobal;
+  }
+  if (typeof oopsGlobal != "undefined") {
+    output += " oopsGlobal: " + oopsGlobal;
+  }
+  console.log(output); 
+}
+
+fun1(); 
+fun2(); // myGlobal: 10 oopsGlobal: 5
+
 
