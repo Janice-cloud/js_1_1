@@ -1,9 +1,12 @@
-// Basic JavaScript: Manipulate Arrays With shift()
-// .shift() removes the first element instead of the last.
+// Basic JavaScript: Manipulate Arrays With unshift()
+// .unshift() works exactly like .push()
+// but instead of adding the element at the end of the array, 
+// unshift() adds the element at the beginning of the array.
 
-var myArray = [["John", 23], ["dog", 3]];
+const myArray = [["John", 23], ["dog", 3]];
 
-var removedFromMyArray = myArray.shift()
+myArray.shift();
+myArray.unshift(["Paul", 35]);
 
-console.log(removedFromMyArray); // John, 23
-console.log(myArray); // dog, 3
+
+console.log(myArray) // Paul, 35, Dog, 3
