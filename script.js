@@ -1,10 +1,12 @@
-// Basic JavaScript: Write Reusable JavaScript with Functions
-// JavaScript, code can be divided up into reusable parts called functions.
-// Function can be called or invoked by using its name followed by parentheses EG functionName()
-// All code between the curly braces will be executed everytime the function is called.
+// Basic JavaScript: Passing Values to Functions with Arguments
+// Parameters are variables that act as placeholders for the values that are to be input to a function when it is called
+// When a function is defined, it is typically defined along with one or more parameters. 
+// The actual values that are input (or "passed") into a function when it is called are known as arguments.
 
-function reusableFunction() {
-    console.log("Hello World");
+function functionWithArgs(num1, num2) {
+    var sum = num1 + num2;
+    console.log(sum);
 }
 
-reusableFunction();
+functionWithArgs(1, 2);
+
