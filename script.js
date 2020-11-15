@@ -1,17 +1,14 @@
-// Basic JavaScript: Understanding Undefined Value returned from a Function
-// A function can include the return statement but it does not have to
-// In the case that the function doesn't have a return statement, when you call it,
-// the function processes the inner code but the returned value is undefined.
+// Basic JavaScript: Assignment with a Returned Value
+// Storing Values with the Assignment Operator (=)
+// Everything to the right of the equal sign is resolved before the value is assigned
+// Meaning we can take the return value of a function and assign it to a variable.
 
-var sum = 0;
+var processed = 0;
 
-function addThree() {
-  sum = sum + 3;
+function processArg(num) {
+  return (num + 3) / 5;
 }
 
-function addFive() {
-  sum = sum + 5;
-}
+processed = processArg(7);
 
-console.log(addThree()); // undefined
-console.log(addFive()); // undefined
+console.log(processed); // 2
