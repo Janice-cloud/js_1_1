@@ -1,17 +1,14 @@
-// Basic JavaScript: Stand in Line
-// In Computer Science a queue is an abstract Data Structure where items are kept in order.
-// New items can be added at the back of the queue and old items are taken off from the front of the queue.
+// Basic JavaScript: Understanding Boolean Values
+// Another data type is the Boolean
+// Booleans may only be one of two values: true or false.
+// Basically little on-off switches, where true is "on" and false is "off."
+// These two states are mutually exclusive.
+// Boolean values are never written with quotes.
+// The strings "true" and "false" are not Boolean and have no special meaning in JavaScript.
 
-function nextInLine(arr, item) {
-  arr.push(item);
-  var removed = arr.shift();
-  return removed;
-}
 
-testArr = [1,2,3,4,5]; 
+function welcomeToBooleans() {
+    return true; // Change this line
+  };
 
-console.log("Before: " + testArr); // Before: 1,2,3,4,5
-
-console.log(nextInLine(testArr, 6)); // 1
-
-console.log("After: " + JSON.stringify(testArr)); // After: [2,3,4,5,6]
+  console.log(welcomeToBooleans());
