@@ -1,12 +1,11 @@
-// Basic JavaScript: Manipulate Arrays With unshift()
-// .unshift() works exactly like .push()
-// but instead of adding the element at the end of the array, 
-// unshift() adds the element at the beginning of the array.
+// Basic JavaScript: Shopping List
 
-const myArray = [["John", 23], ["dog", 3]];
+var myList = [
+  ["Chocolate Bar", 15],
+  ["chips", 2],
+  ["milk", 1],
+  ["bread", 2],
+  ["butter", 1],
+];
 
-myArray.shift();
-myArray.unshift(["Paul", 35]);
-
-
-console.log(myArray) // Paul, 35, Dog, 3
+console.log(myList);
