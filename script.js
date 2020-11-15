@@ -1,12 +1,9 @@
-// Basic JavaScript: Manipulate Arrays With pop()
-// Change the data in an array using the .pop() function
-// .pop() is used to "pop" a value off of the end of an array. 
-// We can store this "popped off" value by assigning it to a variable.
-// In other words, .pop() removes the last element from an array and returns that element.
+// Basic JavaScript: Manipulate Arrays With shift()
+// .shift() removes the first element instead of the last.
 
-var myArray = [["John", 23], ["cat", 2]];
+var myArray = [["John", 23], ["dog", 3]];
 
-var removedFromMyArray = myArray.pop();
+var removedFromMyArray = myArray.shift()
 
-console.log(removedFromMyArray); // cat, 2
-console.log(myArray); // John, 23
+console.log(removedFromMyArray); // John, 23
+console.log(myArray); // dog, 3
