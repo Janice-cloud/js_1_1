@@ -1,29 +1,21 @@
-// Basic JavaScript: Global Scope and Functions
+// Basic JavaScript: Local Scope and Functions
 // Scope refers to the visibility of variables.
 // Global scope : Variables which are defined outside of a function block. This means, they can be seen everywhere in your JavaScript code.
-// Variables which are used without the var keyword are automatically created in the global scope
-// This can create unintended consequences elsewhere in your code or when running a function again
-// You should always declare your variables with var.
+// Local scope: Variables which are declared within a function, as well as the function parameter. Only visible within that function
 
-// Declare the myGlobal 
-var myGlobal = 10;
 
-function fun1() {
-   oopsGlobal = 5; 
-}
-
-function fun2() {
-  var output = "";
-  if (typeof myGlobal != "undefined") {
-    output += "myGlobal: " + myGlobal;
+function myLocalScope() {
+    'use strict';
+  
+    // Only change code below this line
+  var myVar = "Hello world";
+    console.log('inside myLocalScope', myVar);
   }
-  if (typeof oopsGlobal != "undefined") {
-    output += " oopsGlobal: " + oopsGlobal;
-  }
-  console.log(output); 
-}
+  myLocalScope();
+  
+  // myVar is not defined outside of myLocalScope
+  console.log('outside myLocalScope', myVar);
 
-fun1(); 
-fun2(); // myGlobal: 10 oopsGlobal: 5
+
 
 
