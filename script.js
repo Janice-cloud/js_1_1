@@ -1,14 +1,20 @@
-// Basic JavaScript: Comparison with the Strict Inequality Operator
-// !== means "Strictly Not Equal"
-// Strict inequality operator is the logical opposite of the strict equality operator
-// Returns false where strict equality would return true and vice versa
-// Strict inequality will not convert data types
+// Basic JavaScript: Comparison with the Greater Than Operator
+// > means greater than operator : compares the values of two numbers
+// If the number to the left is greater than the number to the right, it returns true.
+// Otherwise, it returns false.
+// Greater than operator will convert data types of values while comparing.
 
-function testStrictNotEqual(val) {
-  if (val !== 17) {
-    return "Not Equal";
+function testGreaterThan(val) {
+  if (val > 100) {
+    return "Over 100";
   }
-  return "Equal";
+
+  if (val > 10) {
+    return "Over 10";
+  }
+
+  return "10 or Under";
 }
 
-console.log(testStrictNotEqual(10));
+console.log(testGreaterThan(10));
+
