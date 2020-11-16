@@ -1,14 +1,18 @@
-// Basic JavaScript: Comparisons with the Logical Or Operator
-// || means logical OR operator : testing more than one thing at a time
-// Returns true if either of the operands is true
-// Otherwise, it returns false.
+// Basic JavaScript: Introducing Else Statements
+// When a condition for an if statement is true, the block of code following it is executed.
+// When condition is false normally nothing would happen.
+// With an else statement, an alternate block of code can be executed.
 
-function testLogicalOr(val) {
-  if (val < 10 || val > 20) {
-    return "Outside";
+function testElse(val) {
+  var result = "";
+
+  if (val > 5) {
+    result = "Bigger than 5";
+  } else {
+    result = "5 or Smaller";
   }
 
-  return "Inside";
+  return result;
 }
 
-console.log(testLogicalOr(15));
+console.log(testElse(4));
