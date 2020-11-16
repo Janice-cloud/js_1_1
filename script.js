@@ -1,19 +1,19 @@
-// Basic JavaScript: Comparison with the Less Than Operator
-// < mean less than operator : compares the values of two numbers
-// If the number to the left is less than the number to the right, it returns true
+// Basic JavaScript: Comparison with the Less Than Or Equal To Operator
+// <= mean  less than or equal to operator : compares the values of two numbers
+// If the number to the left is less than or equal to the number to the right, it returns true
 // Otherwise, it returns false.
-// Less than operator converts data types while comparing.
+// Less than or equal to converts data types
 
-function testLessThan(val) {
-  if (val < 25) {
-    return "Under 25";
+function testLessOrEqual(val) {
+    if (val <= 12) { 
+      return "Smaller Than or Equal to 12";
+    }
+  
+    if (val <= 24) { 
+      return "Smaller Than or Equal to 24";
+    }
+  
+    return "More Than 24";
   }
-
-  if (val < 55) {
-    return "Under 55";
-  }
-
-  return "55 or Over";
-}
-
-console.log(testLessThan(10));
+  
+  console.log(testLessOrEqual(10));
