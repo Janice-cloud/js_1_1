@@ -1,25 +1,21 @@
-// Basic JavaScript: Logical Order in If Else Statements
-// Order is important in if, else if statements.
-// The function is executed from top to bottom so need to be careful of what statement comes first.
+// Basic JavaScript:  Chaining If Else Statements
+// if/else statements can be chained together for complex logic. 
+// Here is example of multiple chained if / else if statements:
 
-function unorderedLogic(val) {
-  if (val < 10) {
-    return "Less than 10";
-  } else if (val < 5) {
-    return "Less than 5";
-  } else {
-    return "Greater than or equal to 10";
+function testSize(num) {
+    if ( num < 5 ) {
+      return "Tiny";
+    } else if ( num < 10 ) {
+      return "Small";
+    } else if ( num < 15 ) {
+      return "Medium";
+    } else if ( num < 20 ) {
+      return "Large";
+    } else if ( num >= 20 ) {
+      return "Huge";
+    } else {
+    return "Change Me";
+    }
   }
-}
-console.log(unorderedLogic(2)); // Less than 10
-
-function orderedLogic(val) {
-  if (val < 5) {
-    return "Less than 5";
-  } else if (val < 10) {
-    return "Less than 10";
-  } else {
-    return "Greater than or equal to 10";
-  }
-}
-console.log(orderedLogic(2)); // less than 5
+  
+  console.log(testSize(7));
