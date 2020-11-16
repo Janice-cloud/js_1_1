@@ -1,15 +1,25 @@
-// Basic JavaScript: Introducing Else If Statements
-// When multiple conditions that need to be addressed
-// if statements can be chained together with "else if" statements
+// Basic JavaScript: Logical Order in If Else Statements
+// Order is important in if, else if statements.
+// The function is executed from top to bottom so need to be careful of what statement comes first.
 
-function testElseIf(val) {
-  if (val > 10) {
-    return "Greater than 10";
+function unorderedLogic(val) {
+  if (val < 10) {
+    return "Less than 10";
   } else if (val < 5) {
-    return "Smaller than 5";
+    return "Less than 5";
   } else {
-    return "Between 5 and 10";
+    return "Greater than or equal to 10";
   }
 }
+console.log(unorderedLogic(2)); // Less than 10
 
-console.log(testElseIf(7));
+function orderedLogic(val) {
+  if (val < 5) {
+    return "Less than 5";
+  } else if (val < 10) {
+    return "Less than 10";
+  } else {
+    return "Greater than or equal to 10";
+  }
+}
+console.log(orderedLogic(2)); // less than 5
