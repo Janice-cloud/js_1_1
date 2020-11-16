@@ -1,18 +1,15 @@
-// Basic JavaScript: Introducing Else Statements
-// When a condition for an if statement is true, the block of code following it is executed.
-// When condition is false normally nothing would happen.
-// With an else statement, an alternate block of code can be executed.
+// Basic JavaScript: Introducing Else If Statements
+// When multiple conditions that need to be addressed
+// if statements can be chained together with "else if" statements
 
-function testElse(val) {
-  var result = "";
-
-  if (val > 5) {
-    result = "Bigger than 5";
+function testElseIf(val) {
+  if (val > 10) {
+    return "Greater than 10";
+  } else if (val < 5) {
+    return "Smaller than 5";
   } else {
-    result = "5 or Smaller";
+    return "Between 5 and 10";
   }
-
-  return result;
 }
 
-console.log(testElse(4));
+console.log(testElseIf(7));
