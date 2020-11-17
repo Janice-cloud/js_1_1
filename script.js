@@ -1,26 +1,39 @@
-// Basic JavaScript:  Adding a Default Option in Switch Statements
-// Switch statement may not be able to specify all possible values as case statements.
-// Default statement can be added which will be executed if no matching case statements are found.
-// It's like the final else statement in an if/else chain.
-// Default statement should be the last case.
+// Basic JavaScript:  Multiple Identical Options in Switch Statements
+// If the break statement is omitted from a switch statement's case, the following case statement(s) are executed until a break is encountered.
+// f you have multiple inputs with the same output, you can represent them in a switch statement like this:
+/*
+switch(val) {
+  case 1:
+  case 2:
+  case 3:
+    result = "1, 2, or 3";
+    break;
+  case 4:
+    result = "4 alone";
+}
+*/
+// Cases for 1, 2, and 3 all produce the same result.
 
-function switchOfStuff(val) {
+function sequentialSizes(val) {
   var answer = "";
   switch (val) {
-    case "a":
-      answer = "apple";
+    case 1:
+    case 2:
+    case 3:
+      answer = "Low";
       break;
-    case "b":
-      answer = "bird";
+    case 4:
+    case 5:
+    case 6:
+      answer = "Mid";
       break;
-    case "c":
-      answer = "cat";
-      break;
-    default:
-      answer = "stuff";
+    case 7:
+    case 8:
+    case 9:
+      answer = "High";
       break;
   }
   return answer;
 }
 
-console.log(switchOfStuff(1));
+console.log(sequentialSizes(1));
