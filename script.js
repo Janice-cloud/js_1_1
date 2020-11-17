@@ -1,39 +1,42 @@
-// Basic JavaScript:  Multiple Identical Options in Switch Statements
-// If the break statement is omitted from a switch statement's case, the following case statement(s) are executed until a break is encountered.
-// f you have multiple inputs with the same output, you can represent them in a switch statement like this:
-/*
-switch(val) {
-  case 1:
-  case 2:
-  case 3:
-    result = "1, 2, or 3";
-    break;
-  case 4:
-    result = "4 alone";
-}
-*/
-// Cases for 1, 2, and 3 all produce the same result.
+// Basic JavaScript:  Replacing If Else Chains with Switch
 
-function sequentialSizes(val) {
+function chain(val) {
+  var answer = "";
+  if (val === "bob") {
+    answer = "Marley";
+  } else if (val === 42) {
+    answer = "The Answer";
+  } else if (val === 1) {
+    answer = "There is no #1";
+  } else if (val === 99) {
+    answer = "Missed me by this much!";
+  } else if (val === 7) {
+    answer = "Ate Nine";
+  }
+  return answer;
+}
+console.log(chain(7));
+
+
+function switchStatement(val) {
   var answer = "";
   switch (val) {
-    case 1:
-    case 2:
-    case 3:
-      answer = "Low";
+    case "bob":
+      answer = "Marley";
       break;
-    case 4:
-    case 5:
-    case 6:
-      answer = "Mid";
+    case 42:
+      answer = "The Answer";
+      break;
+    case 1:
+      answer = "There is no #1";
+      break;
+    case 99:
+      answer = "Missed me by this much!";
       break;
     case 7:
-    case 8:
-    case 9:
-      answer = "High";
+      answer = "Ate Nine";
       break;
   }
   return answer;
 }
-
-console.log(sequentialSizes(1));
+console.log(switchStatement(7));
