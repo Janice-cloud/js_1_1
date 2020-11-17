@@ -1,35 +1,25 @@
-// Basic JavaScript:  Golf Code
-// Game of golf each hole has a par meaning the average number of strokes a golfer is expected to make in order to sink the ball in a hole to complete the play. 
-// Depending on how far above or below par your strokes are, there is a different nickname.
-// Function will be passed par and strokes arguments. Return the correct string according the strokes in order of priority; top (highest) to bottom (lowest).
+// Basic JavaScript:  Selecting from Many Options with Switch Statements
+// A switch statement tests a value and can have many case statements which define various possible values.
+// Statements are executed from the first matched case value until a break is encountered.
 
-var names = [
-  "Hole-in-one!",
-  "Eagle",
-  "Birdie",
-  "Par",
-  "Bogey",
-  "Double Bogey",
-  "Go Home!",
-];
-function golfScore(par, strokes) {
-  if (strokes === 1) {
-    return names[0];
-  } else if (strokes <= par - 2) {
-    return names[1];
-  } else if (strokes === par - 1) {
-    return names[2];
-  } else if (strokes === par) {
-    return names[3];
-  } else if (strokes === par + 1) {
-    return names[4];
-  } else if (strokes === par + 2) {
-    return names[5];
-  } else if (strokes >= par + 3) {
-    return names[6];
-  } else {
-    return "Change Me";
+function caseInSwitch(val) {
+  var answer = "";
+  switch (val) {
+    case 1:
+      answer = "alpha";
+      break;
+    case 2:
+      answer = "beta";
+      break;
+    case 3:
+      answer = "gamma";
+      break;
+    case 4:
+      answer = "delta";
+      break;
   }
+  return answer;
 }
 
-console.log(golfScore(5, 4));
+console.log(caseInSwitch(1));
+
