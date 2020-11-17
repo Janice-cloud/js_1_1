@@ -1,25 +1,26 @@
-// Basic JavaScript:  Selecting from Many Options with Switch Statements
-// A switch statement tests a value and can have many case statements which define various possible values.
-// Statements are executed from the first matched case value until a break is encountered.
+// Basic JavaScript:  Adding a Default Option in Switch Statements
+// Switch statement may not be able to specify all possible values as case statements.
+// Default statement can be added which will be executed if no matching case statements are found.
+// It's like the final else statement in an if/else chain.
+// Default statement should be the last case.
 
-function caseInSwitch(val) {
+function switchOfStuff(val) {
   var answer = "";
   switch (val) {
-    case 1:
-      answer = "alpha";
+    case "a":
+      answer = "apple";
       break;
-    case 2:
-      answer = "beta";
+    case "b":
+      answer = "bird";
       break;
-    case 3:
-      answer = "gamma";
+    case "c":
+      answer = "cat";
       break;
-    case 4:
-      answer = "delta";
+    default:
+      answer = "stuff";
       break;
   }
   return answer;
 }
 
-console.log(caseInSwitch(1));
-
+console.log(switchOfStuff(1));
