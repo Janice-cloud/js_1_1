@@ -1,42 +1,30 @@
-// Basic JavaScript:  Replacing If Else Chains with Switch
+// Basic JavaScript:  Returning Boolean Values from Functions
+// Comparison with the Equality Operator all comparison operators return a boolean true or false value
+//  if/else statement to do a comparison, like this:
+/*
+    function isEqual(a,b) {
+    if (a === b) {
+        return true;
+    } else {
+        return false;
+    }
+    }*/
+// better way is to use === which returns true or false, we can return the result of the comparison like this:
+/*
+    function isEqual(a,b) {
+    return a === b;
+    }*/
 
-function chain(val) {
-  var answer = "";
-  if (val === "bob") {
-    answer = "Marley";
-  } else if (val === 42) {
-    answer = "The Answer";
-  } else if (val === 1) {
-    answer = "There is no #1";
-  } else if (val === 99) {
-    answer = "Missed me by this much!";
-  } else if (val === 7) {
-    answer = "Ate Nine";
+function isLessIfElse(a, b) {
+  if (a < b) {
+    return true;
+  } else {
+    return false;
   }
-  return answer;
 }
-console.log(chain(7));
+console.log(isLessIfElse(10, 15)); // True
 
-
-function switchStatement(val) {
-  var answer = "";
-  switch (val) {
-    case "bob":
-      answer = "Marley";
-      break;
-    case 42:
-      answer = "The Answer";
-      break;
-    case 1:
-      answer = "There is no #1";
-      break;
-    case 99:
-      answer = "Missed me by this much!";
-      break;
-    case 7:
-      answer = "Ate Nine";
-      break;
-  }
-  return answer;
+function isLessComparisonEquality(a, b) {
+  return a <= b;
 }
-console.log(switchStatement(7));
+console.log(isLessComparisonEquality(10, 15)); // True
