@@ -1,20 +1,18 @@
-// Basic JavaScript: Accessing Nested Objects
-// The sub-properties of objects can be accessed by chaining together the dot or bracket notation.
+// Basic JavaScript: Accessing Nested Arrays
+// Similar to accessing nested objects, Array bracket notation can be chained to access nested arrays.
 
-var myStorage = {
-  car: {
-    inside: {
-      "glove box": "maps",
-      "passenger seat": "crumbs",
-    },
-    outside: {
-      trunk: "jack",
-    },
+var myPlants = [
+  {
+    type: "flowers",
+    list: ["rose", "tulip", "dandelion"],
   },
-};
+  {
+    type: "trees",
+    list: ["fir", "pine", "birch"],
+  },
+];
 
-var gloveBoxContents = undefined; 
 
-gloveBoxContents = myStorage.car.inside["glove box"];
+var secondTree = myPlants[1].list[1];
 
-console.log(gloveBoxContents);
+console.log(secondTree);
