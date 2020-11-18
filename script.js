@@ -1,18 +1,28 @@
-// Basic JavaScript: Testing Objects for Properties
-// Sometimes it is useful to check if the property of a given object exists or not.
-// Use the .hasOwnProperty(propname) method of objects to determine if that object has the given property name.
-// hasOwnProperty() returns true or false if the property is found or not.
+// Basic JavaScript: Manipulating Complex Objects
+// Store data in a flexible Data Structure
+// A JavaScript object is one way to handle flexible data.
+// They allow for arbitrary combinations of strings, numbers, booleans, arrays, functions, and objects.
+// Object can have :
+// - various pieces of metadata
+// - a nested array : place a comma after every object in the array, unless it is the last object in the array.
+// Objects hold data in a property, which has a key-value format.
+// JavaScript Object Notation or JSON is a related data interchange format used to store data.
 
+var myMusic = [
+  {
+    artist: "Billy Joel",
+    title: "Piano Man",
+    release_year: 1973,
+    formats: ["CD", "8T", "LP"],
+    gold: true,
+  },
+  {
+    artist: "Britney Spears",
+    title: "Oops!... I did it again",
+    release_year: 2000,
+    formats: ["CD", "MP3", "LP"],
+    gold: true,
+  }, 
+];
 
-// obj name of object, checkProp is the property
-function checkObj(obj, checkProp) {
-  if (obj.hasOwnProperty(checkProp)) {
-    return obj[checkProp];
-  } else {
-    return "Not Found";
-  }
-}
-
-console.log(checkObj({ gift: "pony", pet: "kitten", bed: "sleigh" }, "pet")); // returns kitten
-
-console.log(checkObj({gift: "pony", pet: "kitten", bed: "sleigh"}, "house")); // returns Not Found
+console.log(myMusic[1]);
