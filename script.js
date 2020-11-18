@@ -1,22 +1,18 @@
-// Basic JavaScript: Using Objects for Lookups
-// Objects can be thought of as a key/value storage, like a dictionary.
-// If you have tabular data, you can use an object to "lookup" values rather than a switch statement or an if/else chain.
-// This is most useful when you know that your input data is limited to a certain range.
+// Basic JavaScript: Testing Objects for Properties
+// Sometimes it is useful to check if the property of a given object exists or not.
+// Use the .hasOwnProperty(propname) method of objects to determine if that object has the given property name.
+// hasOwnProperty() returns true or false if the property is found or not.
 
-function phoneticLookup(val) {
-  var result = "";
 
-  var lookup = {
-    alpha: "Adams",
-    bravo: "Boston",
-    charlie: "Chicago",
-    delta: "Denver",
-    echo: "Easy",
-    foxtrot: "Frank",
-  };
-  result = lookup[val];
-
-  return result;
+// obj name of object, checkProp is the property
+function checkObj(obj, checkProp) {
+  if (obj.hasOwnProperty(checkProp)) {
+    return obj[checkProp];
+  } else {
+    return "Not Found";
+  }
 }
 
-console.log(phoneticLookup("charlie"));
+console.log(checkObj({ gift: "pony", pet: "kitten", bed: "sleigh" }, "pet")); // returns kitten
+
+console.log(checkObj({gift: "pony", pet: "kitten", bed: "sleigh"}, "house")); // returns Not Found
