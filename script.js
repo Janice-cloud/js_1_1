@@ -1,14 +1,14 @@
-// Basic JavaScript: Add New Properties to a JavaScript Object
-// new properties can be added to existing JavaScript objects the same way you would modify them
-
+// Basic JavaScript: Delete Properties from a JavaScript Object
+// Properties can be deleted from Objects
 
 var myDog = {
   "name": "Happy Coder",
   "legs": 4,
   "tails": 1,
-  "friends": ["freeCodeCamp Campers"]
+  "friends": ["freeCodeCamp Campers"],
+  "bark": "woof"
 };
 
-myDog.bark = "woof";
+delete myDog.tails;
 
 console.log(myDog);
