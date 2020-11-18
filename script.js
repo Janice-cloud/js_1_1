@@ -1,18 +1,38 @@
-// Basic JavaScript: Accessing Nested Arrays
-// Similar to accessing nested objects, Array bracket notation can be chained to access nested arrays.
+// Basic JavaScript: Record Collection
 
-var myPlants = [
-  {
-    type: "flowers",
-    list: ["rose", "tulip", "dandelion"],
+
+var collection = {
+  2548: {
+    albumTitle: "Slippery When Wet",
+    artist: "Bon Jovi",
+    tracks: ["Let It Rock", "You Give Love a Bad Name"],
   },
-  {
-    type: "trees",
-    list: ["fir", "pine", "birch"],
+  2468: {
+    albumTitle: "1999",
+    artist: "Prince",
+    tracks: ["1999", "Little Red Corvette"],
   },
-];
+  1245: {
+    artist: "Robert Palmer",
+    tracks: [],
+  },
+  5439: {
+    albumTitle: "ABBA Gold",
+  },
+};
 
+function updateRecords(object, id, prop, value) {
+  if (prop !== "tracks" && value !== "") {
+    object[id][prop] = value;
+  } else if (prop === "tracks" && !object[id].hasOwnProperty("tracks")) {
+    object[id][prop]= [value];
+  } else if (prop === "tracks" && value !== "") {
+    object[id][prop].push(value);
+  } else if (value === "") {
+    delete object[id][prop];
+  }
 
-var secondTree = myPlants[1].list[1];
+  return object;
+}
 
-console.log(secondTree);
+console.log(updateRecords(collection, 5439, "tracks", "Take a Chance on Me"));
