@@ -1,11 +1,10 @@
-// Basic JavaScript: Iterate Odd Numbers With a For Loop
-// For loops don't have to iterate one at a time
-// Changing the final-expression, loop can count by even numbers
-// Start at i = 0 and loop while i < 10. To increment i by 2 each loop by using i += 2.
+// Basic JavaScript: Count Backwards With a For Loop
+// For loop can also count backwards, so long as the right conditions are defined.
+// To count backwards by twos, need to change the initialization, condition, and final-expression
+// Start at i = 10 and loop while i > 0. Will decrement i by 2 each loop with i -= 2
 
 var evenArray = [];
-
-for (var i = 0; i < 10; i += 2) {
+for (var i = 10; i > 0; i -= 2) {
   evenArray.push(i);
 }
 
@@ -13,7 +12,7 @@ console.log(evenArray); // count by even numbers
 
 var oddArray = [];
 
-for (var i = 1; i < 10; i += 2) {
+for (var i = 9; i > 0; i -= 2) {
   oddArray.push(i);
 }
 
