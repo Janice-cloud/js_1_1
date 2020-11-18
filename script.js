@@ -1,17 +1,31 @@
-// Basic JavaScript: Iterate Through an Array with a For Loop
-// Common task in JS is to iterate through the contents of an array.
-// One way to do that is with a for loop.
+// Basic JavaScript: Nesting For Loops
+// For multi-dimensional array, the same logic can be used as the prior waypoint to loop through both the array and any sub-arrays
 
-// Iterating through an Array
-var arr = [10, 9, 8, 7, 6];
+// Iterating through a multi-dimensional array
+var arr = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
 for (var i = 0; i < arr.length; i++) {
-  console.log(arr[i]);
+  for (var j = 0; j < arr[i].length; j++) {
+    console.log(arr[i][j]);
+  }
 }
 
-// adding numbers in an Array
-var myArr = [2, 3, 4, 5, 6];
-
-var total = 0;
-for (var i = 0; i < myArr.length; i++) {
-  console.log((total += myArr[i]));
+// Returns the product of all the numbers in the sub-arrays
+function multiplyAll(arr) {
+  var product = 1;
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[i].length; j++) {
+      console.log((product *= arr[i][j]));
+    }
+  }
+  return product;
 }
+
+multiplyAll([
+  [1, 2],
+  [3, 4],
+  [5, 6, 7],
+]);
