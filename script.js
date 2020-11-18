@@ -1,13 +1,14 @@
-// Basic JavaScript: Updating Object Properties
-// After creating a JavaScript object, its properties can be up dated at any time just like you would update any other variable
+// Basic JavaScript: Add New Properties to a JavaScript Object
+// new properties can be added to existing JavaScript objects the same way you would modify them
+
 
 var myDog = {
-  "name": "Coder",
+  "name": "Happy Coder",
   "legs": 4,
   "tails": 1,
   "friends": ["freeCodeCamp Campers"]
 };
 
-myDog.name = "Happy Coder";
+myDog.bark = "woof";
 
-console.log(myDog.name);
+console.log(myDog);
