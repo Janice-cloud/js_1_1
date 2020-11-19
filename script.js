@@ -1,89 +1,54 @@
-// Basic JavaScript: Replace Loops using Recursion
-// Recursion is the concept that a function can be expressed in terms of itself.
-// do...while loop will push only the number 10 to myArray, and i will be equal to 11 when your code has finished running
+// Basic JavaScript: Profile Lookup
 
+var contacts = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "0543236543",
+    likes: ["Pizza", "Coding", "Brownie Points"],
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "0994372684",
+    likes: ["Hogwarts", "Magic", "Hagrid"],
+  },
+  {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+    number: "0487345643",
+    likes: ["Intriguing Cases", "Violin"],
+  },
+  {
+    firstName: "Kristian",
+    lastName: "Vos",
+    number: "unknown",
+    likes: ["JavaScript", "Gaming", "Foxes"],
+  },
+];
 
-function sum(arr, n) {
-  if (n <= 0) {
-    return 0;
-  } else {
-    return sum(arr, n - 1) + arr[n - 1];
+function lookUpProfile(name, prop) {
+  for (var x = 0; x < contacts.length; x++) {
+    if (contacts[x].firstName === name) {
+      if (contacts[x].hasOwnProperty(prop)) {
+        return contacts[x][prop];
+      } else {
+        return "no such property";
+      }
+    }
   }
+  return "No such contact";
 }
 
+console.log(lookUpProfile("Akira", "likes"));
 
-console.log(sum([2, 3, 4], 1)); // 2 
+console.log(lookUpProfile("Kristian", "lastName"));
 
-/* the first time through 
+console.log(lookUpProfile("Sherlock", "likes"));
 
-function sum([2, 3, 4], 1) {
-  if(1 <= 0){ // false this time
-    return 0; 
-  }else { // this is where we end up
-    return sum([2, 3, 4], 0) + 2; // sum will be the result of the recurse back into the function, plus 2
-  }
-}
+console.log(lookUpProfile("Harry", "likes"));
 
- the second time through 
+console.log(lookUpProfile("Bob", "potato"));
 
-function sum([2, 3, 4], 0) {
-  if(0 <= 0){ // true this time 
-    return 0; // send this result back up to the first run through
-  }else {
-    // not relevant this time
-  }
-}
+console.log(lookUpProfile("Akira", "address"));
 
-back in the the first time through, 
-we now have a value to work with below
-remember, this isn't the 'third' time through,
-it is back in the first time run through
-just re-printed here so you could see 
-where the value gets returned from the second run
-
-function sum([2, 3, 4], 1) {
-  if(1 <= 0){ // false this time
-    return 0; 
-  }else { // this is where we end up
-    return sum(0 + 2); // we got a result from the second run through, sum is now 2
-  }
-}*/
-
-console.log(sum([2, 3, 4, 5], 3)) // total is  9  
-
-// Explaination below 
-/*
-function sum([2, 3, 4, 5], 3) {
-  if (3 <= 0) {
-    return 0;
-  } else {
-    return sum([2, 3, 4, 5], 2) + 4);
-  }
-}
-
-
-function sum([2, 3, 4, 5], 2) {
-  if (2 <= 0) {
-    return 0;
-  } else {
-    return sum([2, 3, 4, 5], 1) + 3;
-  }
-}
-
-function sum([2, 3, 4, 5], 1) {
-  if (1 <= 0) {
-    return 0;
-  } else {
-    return sum([2, 3, 4, 5], 0) + 2;
-  }
-}
-
-
-function sum([2, 3, 4, 5], 3) {
-  if (0 <= 0) {
-    return 0;
-  } else {
-return sum(0 + 4 + 3 + 2) // = 9 result from the first, second and third run through
-}
-}
-*/
