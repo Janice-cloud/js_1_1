@@ -1,11 +1,13 @@
-// Basic JavaScript: Generate Random Fractions with JavaScript
-// Random numbers are useful for creating random behavior.
-// Math.random() function that generates a random decimal number between 0 (inclusive) and not quite up to 1 (exclusive)
-// Thus Math.random() can return a 0 but never quite return a 1
-// Storing Values with the Equal Operator, all function calls will be resolved before the return executes, so we can return the value of the Math.random() function.
+// Basic JavaScript: Generate Random Whole Numbers with JavaScript
+// How to generate a randome whole number
+// 1. Use Math.random() to generate a random decimal.
+// 2. Multiply that random decimal by 20.
+// 3. Use another function, Math.floor() to round the number down to its nearest whole number.
+// Math.random() can never quite return a 1 and, because we're rounding down, it's impossible to actually get 20. This technique will give us a whole number between 0 and 19.
+// Example of code :  Math.floor(Math.random() * 20);
 
-function randomFraction() {
-  return Math.random(1);
+function randomWholeNum() {
+  return Math.floor(Math.random() * 10);
 }
 
-console.log(randomFraction())
+console.log(randomWholeNum());
