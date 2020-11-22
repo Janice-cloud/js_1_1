@@ -1,54 +1,11 @@
-// Basic JavaScript: Profile Lookup
+// Basic JavaScript: Generate Random Fractions with JavaScript
+// Random numbers are useful for creating random behavior.
+// Math.random() function that generates a random decimal number between 0 (inclusive) and not quite up to 1 (exclusive)
+// Thus Math.random() can return a 0 but never quite return a 1
+// Storing Values with the Equal Operator, all function calls will be resolved before the return executes, so we can return the value of the Math.random() function.
 
-var contacts = [
-  {
-    firstName: "Akira",
-    lastName: "Laine",
-    number: "0543236543",
-    likes: ["Pizza", "Coding", "Brownie Points"],
-  },
-  {
-    firstName: "Harry",
-    lastName: "Potter",
-    number: "0994372684",
-    likes: ["Hogwarts", "Magic", "Hagrid"],
-  },
-  {
-    firstName: "Sherlock",
-    lastName: "Holmes",
-    number: "0487345643",
-    likes: ["Intriguing Cases", "Violin"],
-  },
-  {
-    firstName: "Kristian",
-    lastName: "Vos",
-    number: "unknown",
-    likes: ["JavaScript", "Gaming", "Foxes"],
-  },
-];
-
-function lookUpProfile(name, prop) {
-  for (var x = 0; x < contacts.length; x++) {
-    if (contacts[x].firstName === name) {
-      if (contacts[x].hasOwnProperty(prop)) {
-        return contacts[x][prop];
-      } else {
-        return "no such property";
-      }
-    }
-  }
-  return "No such contact";
+function randomFraction() {
+  return Math.random(1);
 }
 
-console.log(lookUpProfile("Akira", "likes"));
-
-console.log(lookUpProfile("Kristian", "lastName"));
-
-console.log(lookUpProfile("Sherlock", "likes"));
-
-console.log(lookUpProfile("Harry", "likes"));
-
-console.log(lookUpProfile("Bob", "potato"));
-
-console.log(lookUpProfile("Akira", "address"));
-
+console.log(randomFraction())
