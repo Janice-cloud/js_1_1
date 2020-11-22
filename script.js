@@ -1,11 +1,10 @@
-// Basic JavaScript: Generate Random Whole Numbers within a Range
-// Can generate a random number between two specific numbers.
-// Define a minimum number min and a maximum number max
-// Example code :  Math.floor(Math.random() * (max - min + 1)) + min;
+// Basic JavaScript: Use the parseInt Function
+// parseInt() function parses a string and returns an integer
+// Example code :  var a = parseInt("007");
+// Above function converts the string "007" to an integer 7. If the first character in the string can't be converted into a number, then it returns NaN.
 
-function randomRange(myMin, myMax) {
-  return Math.floor(Math.random()*(myMax - myMin +1)) + myMin;
+function convertToInteger(str) {
+  return parseInt(str);
 }
 
-
-console.log(randomRange(20, 30));
+console.log(convertToInteger("56"));
