@@ -1,26 +1,17 @@
-// Basic JavaScript: Use Recursion to Create a Countdown
-// Complex function that returns an array of consecutive integers starting with 1 through the number passed to the function.
+// Basic JavaScript: Use Recursion to Create a Range of Numbers
+// The function should return an array of integers which begins with a number represented by the startNum parameter and ends with a number represented by the endNum parameter. 
+// The starting number will always be less than or equal to the ending number. Your function must use recursion by calling itself and not use loops of any kind. It should also work for cases where both startNum and endNum are the same.
 
+function rangeOfNumbers(startNum, endNum) {
+  if (endNum - startNum === 0) {
+   return [startNum];
+ } else {
+   var numbers = rangeOfNumbers(startNum, endNum - 1);
+   numbers.push(endNum);
+   return numbers;
+ }
+};
 
-function countup(n) {
-  if (n < 1) {
-    return [];
-  } else {
-    const countArray = countup(n - 1);
-    countArray.push(n);
-    return countArray;
-  }
-}
-console.log(countup(5));
+console.log(rangeOfNumbers(10, 20));
 
-function countdown(n){
-  if (n < 1) {
-    return [];
-  } else {
-    const arr = countdown(n - 1);
-    arr.unshift(n);
-    return arr;
-  }
-  return;
-}
-console.log(countdown(10));
+console.log(rangeOfNumbers(10, 10));
