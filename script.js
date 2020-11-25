@@ -1,32 +1,20 @@
-// ES6: Use Arrow Functions to Write Concise Anonymous Functions
-// JavaScript, we often don't need to name our functions, especially when passing a function as an argument to another function.
-// Instead, we create inline functions.
-// We don't need to name these functions because we do not reuse them anywhere else. Often the  following syntax is used:
-/* const myFunc = function() {
-  const myVar = "value";
-  return myVar;
-}*/
+// ES6: Write Arrow Functions with Parameters
+// regular function, you can pass arguments into an arrow function
 
-//  Instead, you can use arrow function syntax:
-/* const myFunc = () => {
-  const myVar = "value";
-  return myVar;
-}*/
+// doubles input value and returns it
+const doubler = (item) => item * 2;
+console.log(doubler(4)); // returns 8
 
-// When there is no function body, and only a return value, arrow function syntax allows you to omit the keyword return as well as the brackets surrounding the code. This helps simplify smaller functions into one-line statements: (This code will still return value by default.)
+// If an arrow function has a single parameter, the parentheses enclosing the parameter may be omitted.
+// the same function, without the parameter parentheses
+const doublerWithout = (item) => item * 2;
+console.log(doublerWithout(4));
 
-// const myFunc = () => "value";
+//It is possible to pass more than one argument into an arrow function.
+// multiplies he first input value by the second and returns it
+const multiplier = (item, multi) => item * multi;
+console.log(multiplier(4, 2)); // returns 8
 
-// JavaScript syntax
-var magicJS = function () {
-  "use strict";
-  return new Date();
-};
-console.log(magicJS());
-
-// ES6 syntax
-const magic = () => {
-  "use strict";
-  return new Date();
-};
-console.log(magic());
+// appends contents of arr2 to arr1 so that the function uses arrow function syntax
+const myConcat = (arr1, arr2) => arr1.concat(arr2);
+console.log(myConcat([1, 2], [3, 4, 5]));
