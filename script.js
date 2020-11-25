@@ -1,15 +1,17 @@
-// ES6: Explore Differences Between the var and let Keywords
-// var - can overwrite variable declarations without an error. Which is a problem in larger code by accidentally overwriting a variable that was not intended to be overwriten.
-// As this behavior does not throw an error searching and fixing bugs becomes more difficult
-// let - solves this potential issue. Which, if a let variable is declared more than once than error of "use strict" will catch the error.
+// ES6: Compare Scopes of the var and let Keywords
+// Declaring a variable with the var keyword, it is declared globally, or locally if declared inside a function.
+// let keyword behaves similarly, but with some extra features
+// when let keyword is declared inside a block, statement, or expression, its scope is limited to that block, statement, or expression.
 
-let catName;
-let quote;
-function catTalk() {
-  "use strict";
-
-  catName = "Oliver";
-  quote = catName + " says Meow!";
-
+function checkScope() {
+  'use strict';
+  let i = 'function scope';
+  if (true) {
+    let i = 'block scope';
+    console.log('Block scope i is: ', i);
+  }
+  console.log('Function scope i is: ', i);
+  return i;
 }
-console.log(catTalk());
+
+console.log(checkScope());
