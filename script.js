@@ -1,20 +1,14 @@
-// ES6: Write Arrow Functions with Parameters
-// regular function, you can pass arguments into an arrow function
+// ES6: Set Default Parameters for Your Functions
+// In order to help us create more flexible functions, ES6 introduces default parameters for functions.
 
-// doubles input value and returns it
-const doubler = (item) => item * 2;
-console.log(doubler(4)); // returns 8
+const greeting = (name = "Anonymous") => "Hello " + name;
 
-// If an arrow function has a single parameter, the parentheses enclosing the parameter may be omitted.
-// the same function, without the parameter parentheses
-const doublerWithout = (item) => item * 2;
-console.log(doublerWithout(4));
+console.log(greeting("John")); // Hello John
+console.log(greeting()); // Hello Anonymous
 
-//It is possible to pass more than one argument into an arrow function.
-// multiplies he first input value by the second and returns it
-const multiplier = (item, multi) => item * multi;
-console.log(multiplier(4, 2)); // returns 8
+//The default parameter kicks in when the argument is not specified (it is undefined).
+//You can add default values for as many parameters as you want.
 
-// appends contents of arr2 to arr1 so that the function uses arrow function syntax
-const myConcat = (arr1, arr2) => arr1.concat(arr2);
-console.log(myConcat([1, 2], [3, 4, 5]));
+// function that increment by adding default parameters so that it will add 1 to number if value is not specified.
+const increment = (number, value = 1) => number + value;
+console.log(increment(0));
