@@ -1,18 +1,32 @@
-// ES6: Prevent Object Mutation
-// Object.freeze to prevent data mutation.
-// Once the object is frozen, you can no longer add, update, or delete properties from it. Any attempt at changing the object will be rejected without an error.
+// ES6: Use Arrow Functions to Write Concise Anonymous Functions
+// JavaScript, we often don't need to name our functions, especially when passing a function as an argument to another function.
+// Instead, we create inline functions.
+// We don't need to name these functions because we do not reuse them anywhere else. Often the  following syntax is used:
+/* const myFunc = function() {
+  const myVar = "value";
+  return myVar;
+}*/
 
-function freezeObj() {
+//  Instead, you can use arrow function syntax:
+/* const myFunc = () => {
+  const myVar = "value";
+  return myVar;
+}*/
+
+// When there is no function body, and only a return value, arrow function syntax allows you to omit the keyword return as well as the brackets surrounding the code. This helps simplify smaller functions into one-line statements: (This code will still return value by default.)
+
+// const myFunc = () => "value";
+
+// JavaScript syntax
+var magicJS = function () {
   "use strict";
-  const MATH_CONSTANTS = {
-    PI: 3.14,
-  };
-  Object.freeze(MATH_CONSTANTS);
-  try {
-    MATH_CONSTANTS.PI = 99;
-  } catch (ex) {
-    console.log(ex);
-  }
-  return MATH_CONSTANTS.PI;
-}
-const PI = freezeObj(); // TypeError: Cannot assign to read only property 'PI' of object '#<Object>'
+  return new Date();
+};
+console.log(magicJS());
+
+// ES6 syntax
+const magic = () => {
+  "use strict";
+  return new Date();
+};
+console.log(magic());
