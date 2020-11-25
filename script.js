@@ -1,16 +1,14 @@
-// ES6: Declare a Read-Only Variable with the const Keyword
-// const has all the awesome features that let has, with the added bonus that variables declared using const are read-only.
-// They are a constant value, which means that once a variable is assigned with const, it cannot be reassigned.
-// trying to reassign a variable declared with const will throw an error
-// common practice when naming constants is to use all uppercase letters, with words separated by an underscore.
-// use uppercase variable identifiers for immutable values
-// use lowercase or camelCase for mutable values (objects and arrays)
+// ES6: Mutate an Array Declared with const
+// Some developers prefer to assign all their variables using const by default, unless they know they will need to reassign the value. Only in that case, they use let.
+// objects (including arrays and functions) assigned to a variable using const are still mutable. Using the const declaration only prevents reassignment of the variable identifier.
 
-function printManyTimes(str) {
-  "use strict";
-  const SENTENCE = str + " is cool!";
-  for (let i = 0; i < str.length; i+=2) {
-    console.log(SENTENCE);
-  }
+const s = [5, 7, 2];
+function editInPlace() {
+  'use strict';
+  // Using s = [2, 5, 7] would be invalid
+s[0] = 2
+s[1] = 5
+s[2] = 7
+console.log(s)
 }
-printManyTimes("freeCodeCamp");
+editInPlace();
