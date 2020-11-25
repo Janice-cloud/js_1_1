@@ -1,14 +1,18 @@
-// ES6: Mutate an Array Declared with const
-// Some developers prefer to assign all their variables using const by default, unless they know they will need to reassign the value. Only in that case, they use let.
-// objects (including arrays and functions) assigned to a variable using const are still mutable. Using the const declaration only prevents reassignment of the variable identifier.
+// ES6: Prevent Object Mutation
+// Object.freeze to prevent data mutation.
+// Once the object is frozen, you can no longer add, update, or delete properties from it. Any attempt at changing the object will be rejected without an error.
 
-const s = [5, 7, 2];
-function editInPlace() {
-  'use strict';
-  // Using s = [2, 5, 7] would be invalid
-s[0] = 2
-s[1] = 5
-s[2] = 7
-console.log(s)
+function freezeObj() {
+  "use strict";
+  const MATH_CONSTANTS = {
+    PI: 3.14,
+  };
+  Object.freeze(MATH_CONSTANTS);
+  try {
+    MATH_CONSTANTS.PI = 99;
+  } catch (ex) {
+    console.log(ex);
+  }
+  return MATH_CONSTANTS.PI;
 }
-editInPlace();
+const PI = freezeObj(); // TypeError: Cannot assign to read only property 'PI' of object '#<Object>'
