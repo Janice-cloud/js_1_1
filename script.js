@@ -1,27 +1,23 @@
-// ES6: Use Destructuring Assignment to Extract Values from Objects
-// Destructuring assignment is special syntax introduced in ES6, for neatly assigning values taken directly from an object.
+// ES6: Use Destructuring Assignment to Assign Variables from Objects
+// Destructuring allows you to assign a new variable name when extracting values.
+// This can be done by putting a new name afte a colon when assigning the value
 
-// The following ES5 code:
+const user = { name: "John Doe", age: 34 };
 
-/*const user = { name: 'John Doe', age: 34 };
-const name = user.name; // name = 'John Doe'
-const age = user.age; // age = 34*/
+//Here's how you can give new variable names in the assignment:
 
-// An equivalent assignment statement using the ES6 destructuring syntax:
+const { name: userName, age: userAge } = user;
 
-//const { name, age } = user;
-// name = 'John Doe', age = 34
-
-// Here, the name and age variables will be created and assigned the values of their respective values from the user object.
-// You can extract as many or few values from the object as you want.
+console.log(userName); // userName = 'John Doe'
+console.log(userAge); // userAge = 34
+// can be read as Y "get the value of user.name and assign it to a new variable named userName" and so on.
 
 const HIGH_TEMPERATURES = {
   yesterday: 75,
   today: 77,
   tomorrow: 80,
 };
+const { today: highToday, tomorrow: highTomorrow } = HIGH_TEMPERATURES;
 
-const { today, tomorrow } = HIGH_TEMPERATURES;
-
-console.log(today);
-console.log(tomorrow);
+console.log(highToday);
+console.log(highTomorrow);
