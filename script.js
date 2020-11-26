@@ -1,23 +1,29 @@
-// ES6: Use Destructuring Assignment to Assign Variables from Objects
-// Destructuring allows you to assign a new variable name when extracting values.
-// This can be done by putting a new name afte a colon when assigning the value
+// ES6: Use Destructuring Assignment to Assign Variables from Nested Objects
+// You can use the same principles from the previous two lessons to destructure values from nested objects.
 
-const user = { name: "John Doe", age: 34 };
-
-//Here's how you can give new variable names in the assignment:
-
-const { name: userName, age: userAge } = user;
-
-console.log(userName); // userName = 'John Doe'
-console.log(userAge); // userAge = 34
-// can be read as Y "get the value of user.name and assign it to a new variable named userName" and so on.
-
-const HIGH_TEMPERATURES = {
-  yesterday: 75,
-  today: 77,
-  tomorrow: 80,
+// nested object
+const user = {
+  johnDoe: { 
+    age: 34,
+    email: 'johnDoe@freeCodeCamp.com'
+  }
 };
-const { today: highToday, tomorrow: highTomorrow } = HIGH_TEMPERATURES;
 
+// To extract the values of object properties and assign them to variables with the same name:
+
+const { johnDoe: { age, email }} = user;
+
+// Assign an object properties' values to variables with different names:
+
+const { johnDoe: { age: userAge, email: userEmail }} = user;
+
+const LOCAL_FORECAST = {
+  yesterday: { low: 61, high: 75 },
+  today: { low: 64, high: 77 },
+  tomorrow: { low: 68, high: 80 }
+};
+  
+const {today: {low: lowToday, high: highToday}} = LOCAL_FORECAST;
+
+console.log(lowToday);
 console.log(highToday);
-console.log(highTomorrow);
