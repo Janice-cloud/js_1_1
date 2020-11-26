@@ -1,29 +1,22 @@
-// ES6: Use Destructuring Assignment to Assign Variables from Nested Objects
-// You can use the same principles from the previous two lessons to destructure values from nested objects.
+// ES6: Use Destructuring Assignment to Assign Variables from Arrays
+// ES6 makes destructuring arrays as easy as destructuring objects.
+// Key difference between the spread operator and array destructuring is that the spread operator unpacks all contents of an array into a comma-separated list.
+// Therefore you cannot pick or choose which elements you want to assign to variables.
 
-// nested object
-const user = {
-  johnDoe: { 
-    age: 34,
-    email: 'johnDoe@freeCodeCamp.com'
-  }
-};
+// Destructuring an array lets us do exactly that:
 
-// To extract the values of object properties and assign them to variables with the same name:
+/*const [a, b] = [1, 2, 3, 4, 5, 6];
+console.log(a, b); // 1, 2*/
 
-const { johnDoe: { age, email }} = user;
+//The variable a is assigned the first value of the array, and b is assigned the second value of the array. We can also access the value at any index in an array with destructuring by using commas to reach the desired index:
 
-// Assign an object properties' values to variables with different names:
+/*const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+console.log(a, b, c); // 1, 2, 5*/
 
-const { johnDoe: { age: userAge, email: userEmail }} = user;
+// Swapping the values using destructing assignment
+let a = 8,
+  b = 6;
 
-const LOCAL_FORECAST = {
-  yesterday: { low: 61, high: 75 },
-  today: { low: 64, high: 77 },
-  tomorrow: { low: 68, high: 80 }
-};
-  
-const {today: {low: lowToday, high: highToday}} = LOCAL_FORECAST;
+[a, b] = [b, a];
 
-console.log(lowToday);
-console.log(highToday);
+console.log(a, b);
