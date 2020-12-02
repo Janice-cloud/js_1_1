@@ -1,19 +1,24 @@
-// ES6: Reuse JavaScript Code Using import
-/* import - allows you to choose which parts of a file or module to load. In the previous lesson, the examples exported add from the math_functions.js file. Here's how you can import it to use in another file:
+// ES6:  Use * to Import Everything from a File
+/* 
 
-import { add } from './math_functions.js';
+To import all contents into current file use below syntax :
+ 
+      import * as 
 
-import will find add in math_functions.js, import just that function for you to use, and ignore the rest.
+Example :
 
-The ./ tells the import to look for the math_functions.js file in the same folder as the current file. The relative file path (./) and file extension (.js) are required when using import in this way.
+import * as myMathModule from "./math_functions.js";
 
-You can import more than one item from the file by adding them in the import statement like this:
+Above import statement will create an object called myMathModule.
 
-import { add, subtract } from './math_functions.js';
+The object will contain all of the exports from math_functions.js in it, so you can access the functions like you would any other object property. Here's how you can use the add and subtract functions that were imported:
+
+myMathModule.add(2,3);
+myMathModule.subtract(5,3);
 
 */
 
-import { uppercaseString, lowercaseString } from './string_functions.js'; 
+import * as stringFunctions from "./string_functions.js";
 
-uppercaseString("hello");
-lowercaseString("WORLD!");
+stringFunctions.uppercaseString("hello");
+stringFunctions.lowercaseString("WORLD!");
