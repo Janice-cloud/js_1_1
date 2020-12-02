@@ -1,24 +1,26 @@
-// ES6:  Use * to Import Everything from a File
+// ES6: Create an Export Fallback with export default
 /* 
 
-To import all contents into current file use below syntax :
- 
-      import * as 
+export default - Usually you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
 
-Example :
+Dxamples using export default:
 
-import * as myMathModule from "./math_functions.js";
+// named function
+export default function add(x, y) {
+  return x + y;
+}
 
-Above import statement will create an object called myMathModule.
+// anonymous function
+export default function(x, y) {
+  return x + y;
+}
 
-The object will contain all of the exports from math_functions.js in it, so you can access the functions like you would any other object property. Here's how you can use the add and subtract functions that were imported:
+export default is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file.
 
-myMathModule.add(2,3);
-myMathModule.subtract(5,3);
+Additionally, export default cannot be used with var, let, or const
 
 */
 
-import * as stringFunctions from "./string_functions.js";
-
-stringFunctions.uppercaseString("hello");
-stringFunctions.lowercaseString("WORLD!");
+export default function subtract(x, y) {
+  return x - y;
+}
