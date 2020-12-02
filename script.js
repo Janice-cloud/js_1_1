@@ -1,29 +1,32 @@
-// ES6: Write Concise Declarative Functions with ES6
-// When defining functions within objects in ES5, we have to use the keyword function as follows:
+// ES6: Use class Syntax to Define a Constructor Function
+// ES6 provides a new syntax to create objects, using the class keyword.
+//class syntax is just syntax and not a full-fledged class-based implementation of an object-oriented paradigm, unlike in languages such as Java, Python, Ruby, etc.
+//  ES5, we usually define a constructor function and use the new keyword to instantiate an object.
+/*var SpaceShuttle = function(targetPlanet){
+  this.targetPlanet = targetPlanet;
+}
+var zeus = new SpaceShuttle('Jupiter');*/
 
-/*const person = {
-  name: "Taylor",
-  sayHello: function () {
-    return `Hello! My name is ${this.name}.`;
-  },
-};*/
+// The class syntax simply replaces the constructor function creation:
 
-// With ES6, You can remove the function keyword and colon altogether when defining functions in objects. Here's an example of this syntax:
-
-const person = {
-  name: "Taylor",
-  sayHello() {
-    return `Hello! My name is ${this.name}.`;
-  },
-};
-
-const bicycle = {
-  gear: 2,
-  setGear(newGear) {
-    this.gear = newGear;
+/*class SpaceShuttle {
+  constructor(targetPlanet) {
+    this.targetPlanet = targetPlanet;
   }
-};
+}
+const zeus = new SpaceShuttle('Jupiter');*/
 
-bicycle.setGear(3);
-console.log(bicycle.gear); // 3 
+// Class keyword declares a new function, to which a constructor is added.
+// Constructor is invoked when new is called to create a new object.
 
+// UpperCamelCase should be used by convention for ES6 class names, as in SpaceShuttle used above.
+// The constructor method is a special method for creating and initializing an object created with a class. You will learn more about it in the Object Oriented Programming section of the JavaScript Algorithms And Data Structures Certification.
+
+class Vegetable {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+const carrot = new Vegetable("carrot");
+console.log(carrot.name); // Should display 'carrot'
