@@ -1,26 +1,19 @@
-// ES6: Create an Export Fallback with export default
+// ES6: Import a Default Export
 /* 
 
-export default - Usually you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
+To import a default export, you need to use a different import syntax.
 
-Dxamples using export default:
+In the following example, add is the default export of the math_functions.js file. Here is how to import it:
 
-// named function
-export default function add(x, y) {
-  return x + y;
-}
+  import add from "./math_functions.js";
 
-// anonymous function
-export default function(x, y) {
-  return x + y;
-}
+The syntax differs in one key place. 
 
-export default is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file.
-
-Additionally, export default cannot be used with var, let, or const
+The imported value, add, is not surrounded by curly braces ({}). add here is simply a variable name for whatever the default export of the math_functions.js file is. You can use any name here when importing a default.
 
 */
 
-export default function subtract(x, y) {
-  return x - y;
-}
+import subtract from "./math_functions.js";
+
+subtract(7,4);
+
