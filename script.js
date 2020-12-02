@@ -1,19 +1,22 @@
-// ES6: Import a Default Export
+// ES6: Create a JavaScript Promise
 /* 
 
-To import a default export, you need to use a different import syntax.
+A promise in JavaScript is used to make a promise to do something, usually asynchronously.
 
-In the following example, add is the default export of the math_functions.js file. Here is how to import it:
+When the task completes, you either fulfill your promise or fail to do so.
 
-  import add from "./math_functions.js";
+Promise is a constructor function, so you need to use the new keyword to create one. 
 
-The syntax differs in one key place. 
+It takes a function, as its argument, with two parameters - resolve and reject.
 
-The imported value, add, is not surrounded by curly braces ({}). add here is simply a variable name for whatever the default export of the math_functions.js file is. You can use any name here when importing a default.
+These are methods used to determine the outcome of the promise. The syntax looks like this:
+
+  const myPromise = new Promise((resolve, reject) => {
+  });
 
 */
 
-import subtract from "./math_functions.js";
+const makeServerRequest = new Promise((resolve, reject) => {
 
-subtract(7,4);
+});
 
