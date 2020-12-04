@@ -1,34 +1,32 @@
-// ES6: Complete a Promise with resolve and reject
+// ES6: Handle a Fulfilled Promise with then
 /* 
 
-A promise has three states: pending, fulfilled, and rejected. 
+Promises are most useful when you have a process that takes an unknown amount of time in your code (i.e. something asynchronous), often a server request. 
 
-The promise you created in the last challenge is forever stuck in the pending state because you did not add a way to complete the promise. The resolve and reject parameters given to the promise argument are used to do this. 
+When you make a server request it takes some amount of time, and after it completes you usually want to do something with the response from the server. 
 
-Resolve is used when you want your promise to succeed.
-Reject is used when you want it to fail. 
+This can be achieved by using the then method. The then method is executed immediately after your promise is fulfilled with resolve. Here’s an example:
 
-These are methods that take an argument, as seen below.
-
-  const myPromise = new Promise((resolve, reject) => {
-    if(condition here) {
-      resolve("Promise was fulfilled");
-    } else {
-      reject("Promise was rejected");
-    }
-  });
-
-The example above uses strings for the argument of these functions, but it can really be anything. Often, it might be an object, that you would use data from, to put on your website or elsewhere.
+myPromise.then(result => {
+  // do something with the result.
+});
+result comes from the argument given to the resolve method.
 
 */
 
 const makeServerRequest = new Promise((resolve, reject) => {
-  // responseFromServer represents a response from a server
-  let responseFromServer = "7";
+  // responseFromServer is set to true to represent a successful response from a server
+
+  let responseFromServer = true;
 
   if (responseFromServer) {
-    resolve(console.log("We got the data"));
-  } else {
-    reject(console.log("Data not received"));
+    resolve("We got the data");
   }
+  myPromise.then((result) => {
+    reject("Data not received");
+  });
+
+  makeServerRequest.then((result) => {
+    console.log(result);
+  });
 });
