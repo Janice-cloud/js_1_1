@@ -1,32 +1,30 @@
-// ES6: Handle a Fulfilled Promise with then
+// ES6: Handle a Rejected Promise with catch
 /* 
 
-Promises are most useful when you have a process that takes an unknown amount of time in your code (i.e. something asynchronous), often a server request. 
+catch is the method used when your promise has been rejected. It is executed immediately after a promise's reject method is called. Here’s the syntax:
 
-When you make a server request it takes some amount of time, and after it completes you usually want to do something with the response from the server. 
-
-This can be achieved by using the then method. The then method is executed immediately after your promise is fulfilled with resolve. Here’s an example:
-
-myPromise.then(result => {
-  // do something with the result.
+myPromise.catch(error => {
+  // do something with the error.
 });
-result comes from the argument given to the resolve method.
+error is the argument passed in to the reject method.
 
 */
 
 const makeServerRequest = new Promise((resolve, reject) => {
-  // responseFromServer is set to true to represent a successful response from a server
-
-  let responseFromServer = true;
+  // responseFromServer is set to false to represent an unsuccessful response from a server
+  let responseFromServer = false;
 
   if (responseFromServer) {
     resolve("We got the data");
-  }
-  myPromise.then((result) => {
+  } else {
     reject("Data not received");
-  });
+  }
+});
 
-  makeServerRequest.then((result) => {
-    console.log(result);
-  });
+makeServerRequest.then((result) => {
+  console.log(result);
+});
+
+makeServerRequest.catch((error) => {
+  console.log(error);
 });
