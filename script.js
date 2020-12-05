@@ -1,30 +1,21 @@
-// ES6: Handle a Rejected Promise with catch
+// Regular Expressions: Using the Test Method
 /* 
 
-catch is the method used when your promise has been rejected. It is executed immediately after a promise's reject method is called. Here’s the syntax:
+Regular expressions are used in programming languages to match parts of strings. You create patterns to help you do that matching.
 
-myPromise.catch(error => {
-  // do something with the error.
-});
-error is the argument passed in to the reject method.
+If you want to find the word "the" in the string "The dog chased the cat", you could use the following regular expression: /the/. Notice that quote marks are not required within the regular expression.
+
+JavaScript has multiple ways to use regexes. One way to test a regex is using the .test() method. The .test() method takes the regex, applies it to a string (which is placed inside the parentheses), and returns true or false if your pattern finds something or not.
+
+let testStr = "freeCodeCamp";
+let testRegex = /Code/;
+testRegex.test(testStr);
+// Returns true
 
 */
 
-const makeServerRequest = new Promise((resolve, reject) => {
-  // responseFromServer is set to false to represent an unsuccessful response from a server
-  let responseFromServer = false;
+let myString = "Hello, World!";
+let myRegex = /Hello/;
+let result = myRegex.test(myString);
 
-  if (responseFromServer) {
-    resolve("We got the data");
-  } else {
-    reject("Data not received");
-  }
-});
-
-makeServerRequest.then((result) => {
-  console.log(result);
-});
-
-makeServerRequest.catch((error) => {
-  console.log(error);
-});
+console.log(result); // True
