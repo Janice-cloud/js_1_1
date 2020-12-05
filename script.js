@@ -1,14 +1,26 @@
-// Regular Expressions: Ignore Case While Matching
+// Regular Expressions: Extract Matches
 /* 
-Up until now, you've looked at regexes to do literal matches of strings. But sometimes, you might want to also match case differences.
+So far, you have only been checking if a pattern exists or not within a string. You can also extract the actual matches you found with the .match() method.
 
-Case (or sometimes letter case) is the difference between uppercase letters and lowercase letters. Examples of uppercase are "A", "B", and "C". Examples of lowercase are "a", "b", and "c".
+To use the .match() method, apply the method on a string and pass in the regex inside the parentheses.
 
-You can match both cases using what is called a flag. There are other flags but here you'll focus on the flag that ignores case - the i flag. You can use it by appending it to the regex. An example of using this flag is /ignorecase/i. This regex can match the strings "ignorecase", "igNoreCase", and "IgnoreCase".
+Here's an example:
+
+"Hello, World!".match(/Hello/);
+// Returns ["Hello"]
+let ourStr = "Regular expressions";
+let ourRegex = /expressions/;
+ourStr.match(ourRegex);
+// Returns ["expressions"]
+Note that the .match syntax is the "opposite" of the .test method you have been using thus far:
+
+'string'.match(/regex/);
+/regex/.test('string');
+
 */
 
-let myString = "freeCodeCamp";
-let fccRegex = /freecodecamp/i;
-let result = fccRegex.test(myString);
+let extractStr = "Extract the word 'coding' from this string.";
+let codingRegex = /coding/;
+let result = extractStr.match(codingRegex);
 
-console.log(result); // True
+console.log(result); 
