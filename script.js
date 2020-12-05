@@ -1,21 +1,16 @@
-// Regular Expressions: Match Literal Strings
+// Regular Expressions: Match a Literal String with Different Possibilities
 /* 
-In the last challenge, you searched for the word "Hello" using the regular expression /Hello/. That regex searched for a literal match of the string "Hello". Here's another example searching for a literal match of the string "Kevin":
+Using regexes like /coding/, you can look for the pattern "coding" in another string.
 
-let testStr = "Hello, my name is Kevin.";
-let testRegex = /Kevin/;
-testRegex.test(testStr);
-// Returns true
-Any other forms of "Kevin" will not match. For example, the regex /Kevin/ will not match "kevin" or "KEVIN".
+This is powerful to search single strings, but it's limited to only one pattern. You can search for multiple patterns using the alternation or OR operator: |.
 
-let wrongRegex = /kevin/;
-wrongRegex.test(testStr);
-// Returns false
-A future challenge will show how to match those other forms as well.
+This operator matches patterns either before or after it. For example, if you wanted to match "yes" or "no", the regex you want is /yes|no/.
+
+You can also search for more than just two patterns. You can do this by adding more patterns with more OR operators separating them, like /yes|no|maybe/.
 */
 
-let waldoIsHiding = "Somewhere Waldo is hiding in this text.";
-let waldoRegex = /Waldo/; 
-let result = waldoRegex.test(waldoIsHiding);
+let petString = "James has a pet cat.";
+let petRegex = /dog|cat|bird|fish/;
+let result = petRegex.test(petString);
 
 console.log(result);
