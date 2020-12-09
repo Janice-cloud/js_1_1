@@ -1,21 +1,15 @@
-// Regular Expressions: Match Everything But Letters and Numbers
+// Regular Expressions: Match All Numbers
 /* 
 
-You've learned that you can use a shortcut to match alphanumerics [A-Za-z0-9_] using \w. A natural pattern you might want to search for is the opposite of alphanumerics.
+You've learned shortcuts for common string patterns like alphanumerics. Another common pattern is looking for just digits or numbers.
 
-You can search for the opposite of the \w with \W. Note, the opposite pattern uses a capital letter. This shortcut is the same as [^A-Za-z0-9_].
-
-let shortHand = /\W/;
-let numbers = "42%";
-let sentence = "Coding!";
-numbers.match(shortHand); // Returns ["%"]
-sentence.match(shortHand); // Returns ["!"]
+The shortcut to look for digit characters is \d, with a lowercase d. This is equal to the character class [0-9], which looks for a single character of any number between zero and nine.
 
 */
 
-let quoteSample = "The five boxing wizards jump quickly.";
-let alphabetRegexV2 = /\W/g; 
-let result = quoteSample.match(alphabetRegexV2).length;
+let movieName = "2001: A Space Odyssey";
+let numRegex = /\d/g; 
+let result = movieName.match(numRegex).length;
 
 
 console.log(result); 
