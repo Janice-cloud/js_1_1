@@ -1,20 +1,29 @@
-// Regular Expressions: Find Characters with Lazy Matching
+// Regular Expressions: Find One or More Criminals in a Hunt
 /* 
 
-In regular expressions, a greedy match finds the longest possible part of a string that fits the regex pattern and returns it as a match. The alternative is called a lazy match, which finds the smallest possible part of the string that satisfies the regex pattern.
+Time to pause and test your new regex writing skills. A group of criminals escaped from jail and ran away, but you don't know how many. However, you do know that they stay close together when they are around other people. You are responsible for finding all of the criminals at once.
 
-You can apply the regex /t[a-z]*i/ to the string "titanic". This regex is basically a pattern that starts with t, ends with i, and has some letters in between.
+Here's an example to review how to do this:
 
-Regular expressions are by default greedy, so the match would return ["titani"]. It finds the largest sub-string possible to fit the pattern.
+The regex /z+/ matches the letter z when it appears one or more times in a row. It would find matches in all of the following strings:
 
-However, you can use the ? character to change it to lazy matching. "titanic" matched against the adjusted regex of /t[a-z]*?i/ returns ["ti"].
+"z"
+"zzzzzz"
+"ABCzzzz"
+"zzzzABC"
+"abczzzzzzzzzzzzzzzzzzzzzabc"
+But it does not find matches in the following strings since there are no letter z characters:
 
-Note
-Parsing HTML with regular expressions should be avoided, but pattern matching an HTML string with regular expressions is completely fine.
+""
+"ABC"
+"abcabc"
+
 */
 
-let text = "<h1>Winter is coming</h1>";
-let myRegex = /<.*?>/;
-let result = text.match(myRegex);
+let crowd = "P1P2P3P4P5P6CCCP7P8P9";
 
-console.log(result); // ["<h1>", index: 0, input: "<h1>Winter is coming</h1>", groups: undefined]
+let reCriminals = /C+/gi;
+
+let matchedCriminals = crowd.match(reCriminals);
+
+console.log(matchedCriminals); // ["CCC"]
