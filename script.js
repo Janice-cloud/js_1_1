@@ -1,21 +1,20 @@
-// Regular Expressions: Find More Than the First Match
+// Regular Expressions: Match Anything with Wildcard Period
 /* 
-So far, you have only been able to extract or search a pattern once.
 
-let testStr = "Repeat, Repeat, Repeat";
-let ourRegex = /Repeat/;
-testStr.match(ourRegex);
-// Returns ["Repeat"]
-To search or extract a pattern more than once, you can use the g flag.
+Sometimes you won't (or don't need to) know the exact characters in your patterns. Thinking of all words that match, say, a misspelling would take a long time. Luckily, you can save time using the wildcard character: .
 
-let repeatRegex = /Repeat/g;
-testStr.match(repeatRegex);
-// Returns ["Repeat", "Repeat", "Repeat"]
+The wildcard character . will match any one character. The wildcard is also called dot and period. You can use the wildcard character just like any other character in the regex. For example, if you wanted to match "hug", "huh", "hut", and "hum", you can use the regex /hu./ to match all four words.
+
+let humStr = "I'll hum a song";
+let hugStr = "Bear hug";
+let huRegex = /hu./;
+huRegex.test(humStr); // Returns true
+huRegex.test(hugStr); // Returns true
 
 */
 
-let twinkleStar = "Twinkle, twinkle, little star";
-let starRegex = /Twinkle/gi;
-let result = twinkleStar.match(starRegex); 
+let exampleStr = "Let's have fun with regular expressions!";
+let unRegex = /un./;
+let result = unRegex.test(exampleStr);
 
-console.log(result); // "Twinkle", "twinkle"
+console.log(result); // true
