@@ -1,22 +1,25 @@
 // Regular Expressions: Match All Letters and Numbers
 /* 
 
-In the last challenge, you learned to use the caret character to search for patterns at the beginning of strings. There is also a way to search for patterns at the end of strings.
+Using character classes, you were able to search for all letters of the alphabet with [a-z]. This kind of character class is common enough that there is a shortcut for it, although it includes a few extra characters as well.
 
-You can search the end of strings using the dollar sign character $ at the end of the regex.
+The closest character class in JavaScript to match the alphabet is \w. This shortcut is equal to [A-Za-z0-9_]. This character class matches upper and lowercase letters plus numbers. Note, this character class also includes the underscore character (_).
 
-let theEnding = "This is a never ending story";
-let storyRegex = /story$/;
-storyRegex.test(theEnding);
-// Returns true
-let noEnding = "Sometimes a story will have to end";
-storyRegex.test(noEnding);
-// Returns false
+let longHand = /[A-Za-z0-9_]+/;
+let shortHand = /\w+/;
+let numbers = "42";
+let varNames = "important_var";
+longHand.test(numbers); // Returns true
+shortHand.test(numbers); // Returns true
+longHand.test(varNames); // Returns true
+shortHand.test(varNames); // Returns true
+These shortcut character classes are also known as shorthand character classes.
 
 */
 
-let caboose = "The last car on a train is the caboose";
-let lastRegex = /caboose$/;
-let result = lastRegex.test(caboose);
+let quoteSample = "The five boxing wizards jump quickly.";
+let alphabetRegexV2 = /\w/g; 
+let result = quoteSample.match(alphabetRegexV2).length;
 
-console.log(result); // true
+
+console.log(result); 
