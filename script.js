@@ -1,23 +1,20 @@
-// Regular Expressions: Match Characters that Occur Zero or More Times
+// Regular Expressions: Find Characters with Lazy Matching
 /* 
 
-The last challenge used the plus + sign to look for characters that occur one or more times. There's also an option that matches characters that occur zero or more times.
+In regular expressions, a greedy match finds the longest possible part of a string that fits the regex pattern and returns it as a match. The alternative is called a lazy match, which finds the smallest possible part of the string that satisfies the regex pattern.
 
-The character to do this is the asterisk or star: *.
+You can apply the regex /t[a-z]*i/ to the string "titanic". This regex is basically a pattern that starts with t, ends with i, and has some letters in between.
 
-let soccerWord = "gooooooooal!";
-let gPhrase = "gut feeling";
-let oPhrase = "over the moon";
-let goRegex = /go*/;/*
-soccerWord.match(goRegex); // Returns ["goooooooo"]
-gPhrase.match(goRegex); // Returns ["g"]
-oPhrase.match(goRegex); // Returns null
+Regular expressions are by default greedy, so the match would return ["titani"]. It finds the largest sub-string possible to fit the pattern.
 
+However, you can use the ? character to change it to lazy matching. "titanic" matched against the adjusted regex of /t[a-z]*?i/ returns ["ti"].
+
+Note
+Parsing HTML with regular expressions should be avoided, but pattern matching an HTML string with regular expressions is completely fine.
 */
 
-let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
-let chewieRegex = /Aa+a*/gi; 
-let result = chewieQuote.match(chewieRegex);
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<.*?>/;
+let result = text.match(myRegex);
 
-
-console.log(result); // ["Aaaaaaaaaaaaaaaa"]
+console.log(result); // ["<h1>", index: 0, input: "<h1>Winter is coming</h1>", groups: undefined]
