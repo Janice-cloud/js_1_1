@@ -1,29 +1,22 @@
-// Regular Expressions: Find One or More Criminals in a Hunt
+// Regular Expressions: Match Beginning String Patterns
 /* 
 
-Time to pause and test your new regex writing skills. A group of criminals escaped from jail and ran away, but you don't know how many. However, you do know that they stay close together when they are around other people. You are responsible for finding all of the criminals at once.
+Prior challenges showed that regular expressions can be used to look for a number of matches. They are also used to search for patterns in specific positions in strings.
 
-Here's an example to review how to do this:
+In an earlier challenge, you used the caret character (^) inside a character set to create a negated character set in the form [^thingsThatWillNotBeMatched]. Outside of a character set, the caret is used to search for patterns at the beginning of strings.
 
-The regex /z+/ matches the letter z when it appears one or more times in a row. It would find matches in all of the following strings:
-
-"z"
-"zzzzzz"
-"ABCzzzz"
-"zzzzABC"
-"abczzzzzzzzzzzzzzzzzzzzzabc"
-But it does not find matches in the following strings since there are no letter z characters:
-
-""
-"ABC"
-"abcabc"
+let firstString = "Ricky is first and can be found.";
+let firstRegex = /^Ricky/;
+firstRegex.test(firstString);
+// Returns true
+let notFirst = "You can't find Ricky now.";
+firstRegex.test(notFirst);
+// Returns false
 
 */
 
-let crowd = "P1P2P3P4P5P6CCCP7P8P9";
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/; 
+let result = calRegex.test(rickyAndCal);
 
-let reCriminals = /C+/gi;
-
-let matchedCriminals = crowd.match(reCriminals);
-
-console.log(matchedCriminals); // ["CCC"]
+console.log(result); // true
