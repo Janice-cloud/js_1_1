@@ -1,4 +1,4 @@
-// Regular Expressions: Match Beginning String Patterns
+// Regular Expressions: Match All Letters and Numbers
 /* 
 
 In the last challenge, you learned to use the caret character to search for patterns at the beginning of strings. There is also a way to search for patterns at the end of strings.
