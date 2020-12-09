@@ -1,21 +1,17 @@
-// Regular Expressions: Match Numbers and Letters of the Alphabet
+// Regular Expressions: Match Single Characters Not Specified
 /* 
 
-Using the hyphen (-) to match a range of characters is not limited to letters. It also works to match a range of numbers.
+So far, you have created a set of characters that you want to match, but you could also create a set of characters that you do not want to match. These types of character sets are called negated character sets.
 
-For example, /[0-5]/ matches any number between 0 and 5, including the 0 and 5.
+To create a negated character set, you place a caret character (^) after the opening bracket and before the characters you do not want to match.
 
-Also, it is possible to combine a range of letters and numbers in a single character set.
-
-let jennyStr = "Jenny8675309";
-let myRegex = /[a-z0-9]/ig;
-// matches all letters and numbers in jennyStr
-jennyStr.match(myRegex);
+For example, /[^aeiou]/gi matches all characters that are not a vowel. Note that characters like ., !, [, @, / and white space are matched - the negated vowel character set only excludes the vowel characters.
 
 */
 
-let quoteSample = "Blueberry 3.141592653s are delicious.";
-let myRegex = /[h-s2-6]/ig; 
+let quoteSample = "3 blind mice.";
+let myRegex = /[^aeiou0-9]/ig; 
 let result = quoteSample.match(myRegex);
 
-console.log(result); // (17) ["l", "r", "r", "3", "4", "5", "2", "6", "5", "3", "s", "r", "l", "i", "i", "o", "s"]
+
+console.log(result); // (9) [" ", "b", "l", "n", "d", " ", "m", "c", "."]
