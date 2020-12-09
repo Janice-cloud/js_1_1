@@ -1,20 +1,26 @@
-// Regular Expressions: Match Anything with Wildcard Period
+// Regular Expressions: Match Single Character with Multiple Possibilities
 /* 
 
-Sometimes you won't (or don't need to) know the exact characters in your patterns. Thinking of all words that match, say, a misspelling would take a long time. Luckily, you can save time using the wildcard character: .
+You learned how to match literal patterns (/literal/) and wildcard character (/./). Those are the extremes of regular expressions, where one finds exact matches and the other matches everything. There are options that are a balance between the two extremes.
 
-The wildcard character . will match any one character. The wildcard is also called dot and period. You can use the wildcard character just like any other character in the regex. For example, if you wanted to match "hug", "huh", "hut", and "hum", you can use the regex /hu./ to match all four words.
+You can search for a literal pattern with some flexibility with character classes. Character classes allow you to define a group of characters you wish to match by placing them inside square ([ and ]) brackets.
 
-let humStr = "I'll hum a song";
-let hugStr = "Bear hug";
-let huRegex = /hu./;
-huRegex.test(humStr); // Returns true
-huRegex.test(hugStr); // Returns true
+For example, you want to match "bag", "big", and "bug" but not "bog". You can create the regex /b[aiu]g/ to do this. The [aiu] is the character class that will only match the characters "a", "i", or "u".
+
+let bigStr = "big";
+let bagStr = "bag";
+let bugStr = "bug";
+let bogStr = "bog";
+let bgRegex = /b[aiu]g/;
+bigStr.match(bgRegex); // Returns ["big"]
+bagStr.match(bgRegex); // Returns ["bag"]
+bugStr.match(bgRegex); // Returns ["bug"]
+bogStr.match(bgRegex); // Returns null
 
 */
 
-let exampleStr = "Let's have fun with regular expressions!";
-let unRegex = /un./;
-let result = unRegex.test(exampleStr);
+let quoteSample = "Beware of bugs in the above code; I have only proved it correct, not tried it.";
+let vowelRegex = /[aeiou]/gi; 
+let result = quoteSample.match(vowelRegex); 
 
-console.log(result); // true
+console.log(result); // ["e", "a", "e", "o", "u", "i", "e", "a", "o", "e", "o", "e", "I", "a", "e", "o", "o", "e", "i", "o", "e", "o", "i", "e", "i"]
