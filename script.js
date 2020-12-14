@@ -1,28 +1,24 @@
-// Regular Expressions: Specify Exact Number of Matches
+// Regular Expressions: Check for All or None
 /* 
 
-You can specify the lower and upper number of patterns with quantity specifiers using curly brackets. Sometimes you only want a specific number of matches.
+Sometimes the patterns you want to search for may have parts of it that may or may not exist. However, it may be important to check for them nonetheless.
 
-To specify a certain number of patterns, just have that one number between the curly brackets.
+You can specify the possible existence of an element with a question mark, ?. This checks for zero or one of the preceding element. You can think of this symbol as saying the previous element is optional.
 
-For example, to match only the word "hah" with the letter a 3 times, your regex would be /ha{3}h/.
+For example, there are slight differences in American and British English and you can use the question mark to match both spellings.
 
-let A4 = "haaaah";
-let A3 = "haaah";
-let A100 = "h" + "a".repeat(100) + "h";
-let multipleHA = /ha{3}h/;
-multipleHA.test(A4); // Returns false
-multipleHA.test(A3); // Returns true
-multipleHA.test(A100); // Returns false
+let american = "color";
+let british = "colour";
+let rainbowRegex= /colou?r/;
+rainbowRegex.test(american); // Returns true
+rainbowRegex.test(british); // Returns true
 
 */
 
-// regex timRegex to match the word "Timber" only when it has four letter m's.
+// favRegex to match both the American English (favorite) and the British English (favourite) version of the word.
 
-let timStr = "Timmmmber";
-let timRegex = /Tim{4}ber/; 
-let result = timRegex.test(timStr);
-
-
+let favWord = "favorite";
+let favRegex = /favou?rite/;
+let result = favRegex.test(favWord);
 
 console.log(result); // true
