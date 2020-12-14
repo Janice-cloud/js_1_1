@@ -1,19 +1,16 @@
-// Regular Expressions: Match Whitespace
+// Regular Expressions: Match Non-Whitespace Characters
 /* 
 
-The challenges so far have covered matching letters of the alphabet and numbers. You can also match the whitespace or spaces between letters.
-
-You can search for whitespace using \s, which is a lowercase s. This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters. You can think of it as similar to the character class [ \r\t\f\n\v].
+Search for non-whitespace using \S, which is an uppercase s. This pattern will not match whitespace, carriage return, tab, form feed, and new line characters. You can think of it being similar to the character class [^ \r\t\f\n\v].
 
 let whiteSpace = "Whitespace. Whitespace everywhere!"
-let spaceRegex = /\s/g;
-whiteSpace.match(spaceRegex);
-// Returns [" ", " "]
+let nonSpaceRegex = /\S/g;
+whiteSpace.match(nonSpaceRegex).length; // Returns 32
 
 */
 
 let sample = "Whitespace is important in separating words";
-let countWhiteSpace = /\s/g; 
-let result = sample.match(countWhiteSpace);
+let countNonWhiteSpace = /\S/g;
+let result = sample.match(countNonWhiteSpace);
 
-console.log(result); // (5) [" ", " ", " ", " ", " "]
+console.log(result); // (38) ["W", "h", "i", "t", "e", "s", "p", "a", "c", "e", "i", "s", "i", "m", "p", "o", "r", "t", "a", "n", "t", "i", "n", "s", "e", "p", "a", "r", "a", "t", "i", "n", "g", "w", "o", "r", "d", "s"]
