@@ -1,26 +1,28 @@
-// Regular Expressions: Specify Upper and Lower Number of Matches
+// Regular Expressions: Specify Exact Number of Matches
 /* 
 
-Plus sign + to look for one or more characters
-The asterisk * to look for zero or more characters.
-These are convenient but sometimes you want to match a certain range of patterns.
+You can specify the lower and upper number of patterns with quantity specifiers using curly brackets. Sometimes you only want a specific number of matches.
 
-You can specify the lower and upper number of patterns with quantity specifiers. Quantity specifiers are used with curly brackets ({ and }). You put two numbers between the curly brackets - for the lower and upper number of patterns.
+To specify a certain number of patterns, just have that one number between the curly brackets.
 
-To match only the letter a appearing between 3 and 5 times in the string "ah", your regex would be /a{3,5}h/.
+For example, to match only the word "hah" with the letter a 3 times, your regex would be /ha{3}h/.
 
-let A4 = "aaaah";
-let A2 = "aah";
-let multipleA = /a{3,5}h/;
-multipleA.test(A4); // Returns true
-multipleA.test(A2); // Returns false
+let A4 = "haaaah";
+let A3 = "haaah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleHA = /ha{3}h/;
+multipleHA.test(A4); // Returns false
+multipleHA.test(A3); // Returns true
+multipleHA.test(A100); // Returns false
 
 */
 
-// match the entire phrase "Oh no" only when it has 3 to 6 letter h's
+// regex timRegex to match the word "Timber" only when it has four letter m's.
 
-let ohStr = "Ohhh no";
-let ohRegex = /Oh{3,6}\sno/; 
-let result = ohRegex.test(ohStr); 
+let timStr = "Timmmmber";
+let timRegex = /Tim{4}ber/; 
+let result = timRegex.test(timStr);
+
+
 
 console.log(result); // true
