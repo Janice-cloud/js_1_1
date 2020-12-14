@@ -1,35 +1,19 @@
-// Regular Expressions: Restrict Possible Usernames
+// Regular Expressions: Match Whitespace
 /* 
 
-Usernames are used everywhere on the internet. They are what give users a unique identity on their favorite sites.
+The challenges so far have covered matching letters of the alphabet and numbers. You can also match the whitespace or spaces between letters.
 
-You need to check all the usernames in a database. Here are some simple rules that users have to follow when creating their username.
+You can search for whitespace using \s, which is a lowercase s. This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters. You can think of it as similar to the character class [ \r\t\f\n\v].
 
-1) Usernames can only use alpha-numeric characters.
-
-2) The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
-
-3) Username letters can be lowercase and uppercase.
-
-4) Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let spaceRegex = /\s/g;
+whiteSpace.match(spaceRegex);
+// Returns [" ", " "]
 
 */
 
-let username = "JackOfAllTrades";
-let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i; // Change this line
-let result = userCheck.test(username);
+let sample = "Whitespace is important in separating words";
+let countWhiteSpace = /\s/g; 
+let result = sample.match(countWhiteSpace);
 
-
-console.log(result); 
-
-/*
-Code Explanation
-^ - start of input
-[a-z] - first character is a letter
-[a-z]+ - following characters are letters
-\d*$ - input ends with 0 or more digits
-| - or
-^[a-z] - first character is a letter
-\d\d+ - following characters are 2 or more digits
-$ - end of input
-*/
+console.log(result); // (5) [" ", " ", " ", " ", " "]
