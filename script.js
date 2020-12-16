@@ -1,33 +1,28 @@
-// Regular Expressions: Use Capture Groups to Search and Replace
+// Regular Expressions: Remove Whitespace from Start and End
 /* 
 
-Searching is useful. However, you can make searching even more powerful when it also changes (or replaces) the text you match.
-
-You can search and replace text in a string using .replace() on a string. The inputs for .replace() is first the regex pattern you want to search for. The second parameter is the string to replace the match or a function to do something.
-
-let wrongText = "The sky is silver.";
-let silverRegex = /silver/;
-wrongText.replace(silverRegex, "blue");
-// Returns "The sky is blue."
-You can also access capture groups in the replacement string with dollar signs ($).
-
-"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
-// Returns "Camp Code"
+Sometimes whitespace characters around strings are not wanted but are there. Typical processing of strings is to remove the whitespace at the start and end of it.
 
 */
 
-//  Write a regex fixRegex using three capture groups that will search for each word in the string "one two three". Then update the replaceText variable to replace "one two three" with the string "three two one" and assign the result to the result variable. Make sure you are utilizing capture groups in the replacement string using the dollar sign ($) syntax.
+// Write a regex and use the appropriate string methods to remove whitespace at the beginning and end of strings.
 
-let str = "one two three";
-let fixRegex = /(\w+)\s(\w+)\s(\w+)/; 
-let replaceText = "$3 $2 $1"; 
-let result = str.replace(fixRegex, replaceText);
+// Note: The String.prototype.trim() method would work here, but you'll need to complete this challenge using regular expressions.
 
-console.log(result); // three two one
 
-// \w global search for word characters in a string
+
+let hello = "   Hello, World!  ";
+let wsRegex = /^\s+|\s+$/g; 
+let result = hello.replace(wsRegex, ""); 
+
+console.log(result); // "Hellow, World!"
+
 // + search for at least one word character
 // \s white space
-// replacement string will use the $ syntax 3 times
 // $ matches anything with number at the end of a string
+// ^ matches anything at the begining of the string
+// g global search
+// | global search to find any of the specified alternatives
+
+// .replace replaces any spaces with no space.
 
