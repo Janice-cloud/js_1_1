@@ -1,36 +1,33 @@
-// Regular Expressions: Reuse Patterns Using Capture Groups
+// Regular Expressions: Use Capture Groups to Search and Replace
 /* 
 
-Some patterns you search for will occur multiple times in a string. It is wasteful to manually repeat that regex. There is a better way to specify when you have multiple repeat substrings in your string.
+Searching is useful. However, you can make searching even more powerful when it also changes (or replaces) the text you match.
 
-You can search for repeat substrings using capture groups. Parentheses, ( and ), are used to find repeat substrings. You put the regex of the pattern that will repeat in between the parentheses.
+You can search and replace text in a string using .replace() on a string. The inputs for .replace() is first the regex pattern you want to search for. The second parameter is the string to replace the match or a function to do something.
 
-To specify where that repeat string will appear, you use a backslash (\) and then a number. This number starts at 1 and increases with each additional capture group you use. An example would be \1 to match the first group.
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+wrongText.replace(silverRegex, "blue");
+// Returns "The sky is blue."
+You can also access capture groups in the replacement string with dollar signs ($).
 
-The example below matches any word that occurs twice separated by a space:
-
-let repeatStr = "regex regex";
-let repeatRegex = /(\w+)\s\1/;
-repeatRegex.test(repeatStr); // Returns true
-repeatStr.match(repeatRegex); // Returns ["regex regex", "regex"]
-Using the .match() method on a string will return an array with the string it matches, along with its capture group.
-
-
+"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
+// Returns "Camp Code"
 
 */
 
-//  regex checks for the names of Franklin Roosevelt or Eleanor Roosevelt in a case sensitive manner and it should make concessions for middle names.
-// regex checked against myString and either true or false is returned depending on whether the regex matches.
+//  Write a regex fixRegex using three capture groups that will search for each word in the string "one two three". Then update the replaceText variable to replace "one two three" with the string "three two one" and assign the result to the result variable. Make sure you are utilizing capture groups in the replacement string using the dollar sign ($) syntax.
 
-let repeatNum = "42 42 42";
-let reRegex = /^(\d+)\s\1\s\1$/; 
-let result = reRegex.test(repeatNum);
+let str = "one two three";
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/; 
+let replaceText = "$3 $2 $1"; 
+let result = str.replace(fixRegex, replaceText);
 
-console.log(result); // TRUE
+console.log(result); // three two one
 
-// ^ at the beginning of a string
-// \d global search for digits
-// + global search for at least one digit 
-// \s global search for whitespace characters in a string
-// $ global searchfor digit  end of a string
+// \w global search for word characters in a string
+// + search for at least one word character
+// \s white space
+// replacement string will use the $ syntax 3 times
+// $ matches anything with number at the end of a string
 
