@@ -1,24 +1,35 @@
-// Regular Expressions: Check for All or None
+// Regular Expressions: Positive and Negative Lookahead
 /* 
 
-Sometimes the patterns you want to search for may have parts of it that may or may not exist. However, it may be important to check for them nonetheless.
+Lookaheads are patterns that tell JavaScript to look-ahead in your string to check for patterns further along. This can be useful when you want to search for multiple patterns over the same string.
 
-You can specify the possible existence of an element with a question mark, ?. This checks for zero or one of the preceding element. You can think of this symbol as saying the previous element is optional.
+There are two kinds of lookaheads: positive lookahead and negative lookahead.
 
-For example, there are slight differences in American and British English and you can use the question mark to match both spellings.
+A positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it. A positive lookahead is used as (?=...) where the ... is the required part that is not matched.
 
-let american = "color";
-let british = "colour";
-let rainbowRegex= /colou?r/;
-rainbowRegex.test(american); // Returns true
-rainbowRegex.test(british); // Returns true
+On the other hand, a negative lookahead will look to make sure the element in the search pattern is not there. A negative lookahead is used as (?!...) where the ... is the pattern that you do not want to be there. The rest of the pattern is returned if the negative lookahead part is not present.
+
+EXAMPLES
+
+let quit = "qu";
+let noquit = "qt";
+let quRegex= /q(?=u)/;
+let qRegex = /q(?!u)/;
+quit.match(quRegex); // Returns ["q"]
+noquit.match(qRegex); // Returns ["q"]
+
+A more practical use of lookaheads is to check two or more patterns in one string. Here is a (naively) simple password checker that looks for between 3 and 6 characters and at least one number:
+
+let password = "abc123";
+let checkPass = /(?=\w{3,6})(?=\D*\d)/;
+checkPass.test(password); // Returns true
 
 */
 
-// favRegex to match both the American English (favorite) and the British English (favourite) version of the word.
+// pwRegex to match passwords that are greater than 5 characters long, do not begin with numbers, and have two consecutive digits.
 
-let favWord = "favorite";
-let favRegex = /favou?rite/;
-let result = favRegex.test(favWord);
+let sampleWord = "astronaut";
+let pwRegex = /^\D(?=\w{5})(?=\w*\d{2})/; 
+let result = pwRegex.test(sampleWord);
 
-console.log(result); // true
+console.log(result); // false
