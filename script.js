@@ -1,28 +1,28 @@
-// Debugging: Understanding the Differences between the freeCodeCamp and Browser Console
+// Debugging: Use typeof to Check the Type of a Variable
 /* 
 
-You may have noticed that some freeCodeCamp JavaScript challenges include their own console. This console behaves a little differently than the browser console you used in the last challenge.
+You can use typeof to check the data structure, or type, of a variable. This is useful in debugging when working with multiple data types. If you think you're adding two numbers, but one is actually a string, the results can be unexpected. Type errors can lurk in calculations or function calls. Be careful especially when you're accessing and working with external data in the form of a JavaScript Object Notation (JSON) object.
 
-The following challenge is meant to highlight the main difference between the freeCodeCamp console and your browser console.
+Here are some examples using typeof:
 
-When you run ordinary JavaScript, the browser's console will display your console.log() statements the exact number of times it is called.
+console.log(typeof ""); // outputs "string"
+console.log(typeof 0); // outputs "number"
+console.log(typeof []); // outputs "object"
+console.log(typeof {}); // outputs "object"
+JavaScript recognizes six primitive (immutable) data types: Boolean, Null, Undefined, Number, String, and Symbol (new with ES6) and one type for mutable items: Object. Note that in JavaScript, arrays are technically a type of object.
 
-The freeCodeCamp console will print your console.log() statements a short time after the editor detects a change in the script, as well as during testing.
-
-The freeCodeCamp console is cleared before the tests are run and, to avoid spam, only prints the logs during the first test (see the note below for exceptions).
-
-If you would like to see every log for every test, run the tests, and open the browser console. If you prefer to use the browser console, and want it to mimic the freeCodeCamp console, place console.clear() before any other console calls, to clear the browser console.
-
-Note: console.logs inside functions are printed to the freeCodeCamp console whenever those functions are called, this can help debugging functions that are called during testing.
+JavaScript recognizes six primitive (immutable) data types: Boolean, Null, Undefined, Number, String, and Symbol (new with ES6) and one type for mutable items: Object. Note that in JavaScript, arrays are technically a type of object.
 
 */
 
+// console.log() statements to check the typeof each of the two variables seven and three in the code.
 
-let output = "Get this to log once in the freeCodeCamp console and twice in the browser console";
-// Use console.log() to print the output variable.
-console.clear();
-console.log(output);
-// Run the tests to see the difference between the two consoles.
+let seven = 7;
+let three = "3";
+console.log(seven + three);
+
+console.log(typeof seven);
+console.log(typeof three);
 
 
 
