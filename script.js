@@ -1,36 +1,28 @@
-// Debugging: Catch Use of Assignment Operator Instead of Equality Operator
+// Debugging: Catch Missing Open and Closing Parenthesis After a Function Call
 /* 
 
-Branching programs, i.e. ones that do different things if certain conditions are met, rely on if, else if, and else statements in JavaScript. The condition sometimes takes the form of testing whether a result is equal to a value.
+When a function or method doesn't take any arguments, you may forget to include the (empty) opening and closing parentheses when calling it. Often times the result of a function call is saved in a variable for other use in your code. This error can be detected by logging variable values (or their types) to the console and seeing that one is set to a function reference, instead of the expected value the function returns.
 
-This logic is spoken (in English, at least) as "if x equals y, then ..." which can literally translate into code using the =, or assignment operator. This leads to unexpected control flow in your program.
+The variables in the following example are different:
 
-As covered in previous challenges, the assignment operator (=) in JavaScript assigns a value to a variable name. And the == and === operators check for equality (the triple === tests for strict equality, meaning both value and type are the same).
-
-The code below assigns x to be 2, which evaluates as true. Almost every value on its own in JavaScript evaluates to true, except what are known as the "falsy" values: false, 0, "" (an empty string), NaN, undefined, and null.
-
-let x = 1;
-let y = 2;
-if (x = y) {
-  // this code block will run for any value of y (unless y were originally set as a falsy)
-} else {
-  // this code block is what should run (but won't) in this example
+function myFunction() {
+  return "You rock!";
 }
+let varOne = myFunction; // set to equal a function
+let varTwo = myFunction(); // set to equal the  string "You rock!"
+
 */
 
-// Fix the condition so the program runs the right branch, and the appropriate value is assigned to result.
+// Fix the code so the variable result is set to the value returned from calling the function getNine.
 
-let x = 7;
-let y = 9;
-let result = "to come";
-
-if(x === y) {
-  result = "Equal!";
-} else {
-  result = "Not equal!";
-}
-
-console.log(result);
+function getNine() {
+    let x = 6;
+    let y = 3;
+    return x + y;
+  }
+  
+  let result = getNine();
+  console.log(result);
 
 
 
