@@ -1,27 +1,28 @@
-// Basic Data Structures: Access an Array's Contents Using Bracket Notation
+// Basic Data Structures: Add Items to an Array with push() and unshift()
 /* 
 
-The fundamental feature of any data structure is, of course, the ability to not only store data, but to be able to retrieve that data on command. So, now that we've learned how to create an array, let's begin to think about how we can access that array's information.
+An array's length, like the data types it can contain, is not fixed. Arrays can be defined with a length of any number of elements, and elements can be added or removed over time; in other words, arrays are mutable. In this challenge, we will look at two methods with which we can programmatically modify an array: Array.push() and Array.unshift().
 
-When we define a simple array as seen below, there are 3 items in it:
+Both methods take one or more elements as parameters and add those elements to the array the method is being called on; the push() method adds elements to the end of an array, and unshift() adds elements to the beginning. Consider the following:
 
-let ourArray = ["a", "b", "c"];
-In an array, each array item has an index. This index doubles as the position of that item in the array, and how you reference it. However, it is important to note, that JavaScript arrays are zero-indexed, meaning that the first element of an array is actually at the zeroth position, not the first. In order to retrieve an element from an array we can enclose an index in brackets and append it to the end of an array, or more commonly, to a variable which references an array object. This is known as bracket notation. For example, if we want to retrieve the "a" from ourArray and assign it to a variable, we can do so with the following code:
+let twentyThree = 'XXIII';
+let romanNumerals = ['XXI', 'XXII'];
 
-let ourVariable = ourArray[0];
-// ourVariable equals "a"
-In addition to accessing the value associated with an index, you can also set an index to a value using the same notation:
+romanNumerals.unshift('XIX', 'XX');
+// now equals ['XIX', 'XX', 'XXI', 'XXII']
 
-ourArray[1] = "not b anymore";
-// ourArray now equals ["a", "not b anymore", "c"];
-Using bracket notation, we have now reset the item at index 1 from "b", to "not b anymore".
+romanNumerals.push(twentyThree);
+// now equals ['XIX', 'XX', 'XXI', 'XXII', 'XXIII']Notice that we can also pass variables, which allows us even greater flexibility in dynamically modifying our array's data.
 
 */
 
-// In order to complete this challenge, set the 2nd position (index 1) of myArray to anything you want, besides "b".
+// We have defined a function, mixedNumbers, which we are passing an array as an argument. Modify the function by using push() and unshift() to add 'I', 2, 'three' to the beginning of the array and 7, 'VIII', 9 to the end so that the returned array contains representations of the numbers 1-9 in order.
 
-let myArray = ["a", "b", "c", "d"];
+function mixedNumbers(arr) {
+  arr.unshift("I", 2, "three");
+  arr.push(7, "VIII", 9);
 
-myArray[1] = "J";
+  return arr;
+}
 
-console.log(myArray);
+console.log(mixedNumbers(["IV", 5, "six"]));
