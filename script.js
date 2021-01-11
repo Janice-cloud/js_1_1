@@ -1,33 +1,22 @@
-// Basic Data Structures: Add Items Using splice()
+// Basic Data Structures: Copy Array Items Using slice()
 /* 
 
-Remember in the last challenge we mentioned that splice() can take up to three parameters? Well, you can use the third parameter, comprised of one or more element(s), to add to the array. This can be incredibly useful for quickly switching out an element, or a set of elements, for another.
+The next method we will cover is slice(). Rather than modifying an array, slice() copies or extracts a given number of elements to a new array, leaving the array it is called upon untouched. slice() takes only 2 parameters — the first is the index at which to begin extraction, and the second is the index at which to stop extraction (extraction will occur up to, but not including the element at this index). Consider this:
 
-const numbers = [10, 11, 12, 12, 15];
-const startIndex = 3;
-const amountToDelete = 1;
+let weatherConditions = ['rain', 'snow', 'sleet', 'hail', 'clear'];
 
-numbers.splice(startIndex, amountToDelete, 13, 14);
-// the second entry of 12 is removed, and we add 13 and 14 at the same index
-console.log(numbers);
-// returns [ 10, 11, 12, 13, 14, 15 ]
-Here we begin with an array of numbers. We then pass the following to splice(). The index at which to begin deleting elements (3), the number of elements to be deleted (1), and the elements (13, 14) to be inserted at that same index. Note that there can be any number of elements (separated by commas) following amountToDelete, each of which gets inserted.
+let todaysWeather = weatherConditions.slice(1, 3);
+// todaysWeather equals ['snow', 'sleet'];
+// weatherConditions still equals ['rain', 'snow', 'sleet', 'hail', 'clear']
+In effect, we have created a new array by extracting elements from an existing array.
 
 */
 
-// We have defined a function, htmlColorNames, which takes an array of HTML colors as an argument. Modify the function using splice() to remove the first two elements of the array and add 'DarkSalmon' and 'BlanchedAlmond' in their respective places.
+// We have defined a function, forecast, that takes an array as an argument. Modify the function using slice() to extract information from the argument array and return a new array that contains the elements 'warm' and 'sunny'.
 
-function htmlColorNames(arr) {
-  arr.splice(0, 2, "DarkSalmon", "BlanchedAlmond");
-  return arr;
-}
+function forecast(arr) {
 
-console.log(
-  htmlColorNames([
-    "DarkGoldenRod",
-    "WhiteSmoke",
-    "LavenderBlush",
-    "PaleTurquoise",
-    "FireBrick",
-  ])
-);
+    return arr.slice(2, 4); // show from 0 - 3 as (2) hides 0, 1 but still there in the array. array shows [ 'warm', 'sunny' ]
+  }
+  
+  console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
