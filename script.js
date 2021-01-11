@@ -1,22 +1,31 @@
-// Basic Data Structures: Copy Array Items Using slice()
+// Basic Data Structures: Copy an Array with the Spread Operator
 /* 
 
-The next method we will cover is slice(). Rather than modifying an array, slice() copies or extracts a given number of elements to a new array, leaving the array it is called upon untouched. slice() takes only 2 parameters — the first is the index at which to begin extraction, and the second is the index at which to stop extraction (extraction will occur up to, but not including the element at this index). Consider this:
+While slice() allows us to be selective about what elements of an array to copy, among several other useful tasks, ES6's new spread operator allows us to easily copy all of an array's elements, in order, with a simple and highly readable syntax. The spread syntax simply looks like this: ...
 
-let weatherConditions = ['rain', 'snow', 'sleet', 'hail', 'clear'];
+In practice, we can use the spread operator to copy an array like so:
 
-let todaysWeather = weatherConditions.slice(1, 3);
-// todaysWeather equals ['snow', 'sleet'];
-// weatherConditions still equals ['rain', 'snow', 'sleet', 'hail', 'clear']
-In effect, we have created a new array by extracting elements from an existing array.
+let thisArray = [true, true, undefined, false, null];
+let thatArray = [...thisArray];
+// thatArray equals [true, true, undefined, false, null]
+// thisArray remains unchanged and thatArray contains the same elements as thisArray
 
 */
 
-// We have defined a function, forecast, that takes an array as an argument. Modify the function using slice() to extract information from the argument array and return a new array that contains the elements 'warm' and 'sunny'.
+// We have defined a function, copyMachine which takes arr (an array) and num (a number) as arguments. The function is supposed to return a new array made up of num copies of arr. We have done most of the work for you, but it doesn't work quite right yet. Modify the function using spread syntax so that it works correctly (hint: another method we have already covered might come in handy here!).
 
-function forecast(arr) {
+function copyMachine(arr, num) {
+  let newArr = [];
+  while (num >= 1) {
+    newArr.push([...arr]);
 
-    return arr.slice(2, 4); // show from 0 - 3 as (2) hides 0, 1 but still there in the array. array shows [ 'warm', 'sunny' ]
+    num--;
   }
-  
-  console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
+  return newArr;
+}
+
+console.log(copyMachine([true, false, true], 2));
+
+//The spread operator copies all elements into a new empty object.
+//The code above will copy all of the elements into newArr but will also reinitialise newArr with every new iteration of the while loop.
+//A new variable should first be initialised using the spread operator - let obj = [...arr]; - then this variable should be added to the newArr for every iteration of the while loop.
