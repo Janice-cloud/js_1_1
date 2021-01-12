@@ -1,25 +1,46 @@
-// Basic Data Structures: Check For The Presence of an Element With indexOf()
+// Basic Data Structures: Iterate Through All an Array's Items Using For Loops
 /* 
 
-Since arrays can be changed, or mutated, at any time, there's no guarantee about where a particular piece of data will be on a given array, or if that element even still exists. Luckily, JavaScript provides us with another built-in method, indexOf(), that allows us to quickly and easily check for the presence of an element on an array. indexOf() takes an element as a parameter, and when called, it returns the position, or index, of that element, or -1 if the element does not exist on the array.
+Sometimes when working with arrays, it is very handy to be able to iterate through each item to find one or more elements that we might need, or to manipulate an array based on which data items meet a certain set of criteria. JavaScript offers several built in methods that each iterate over arrays in slightly different ways to achieve different results (such as every(), forEach(), map(), etc.), however the technique which is most flexible and offers us the greatest amount of control is a simple for loop.
 
-For example:
+Consider the following:
 
-let fruits = ['apples', 'pears', 'oranges', 'peaches', 'pears'];
+function greaterThanTen(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 10) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
 
-fruits.indexOf('dates'); // returns -1
-fruits.indexOf('oranges'); // returns 2
-fruits.indexOf('pears'); // returns 1, the first index at which the element exists
+greaterThanTen([2, 12, 8, 14, 80, 0, 1]);
+// returns [12, 14, 80]
+Using a for loop, this function iterates through and accesses each element of the array, and subjects it to a simple test that we have created. In this way, we have easily and programmatically determined which data items are greater than 10, and returned a new array containing those items.
 
 */
 
 // indexOf() can be incredibly useful for quickly checking for the presence of an element on an array. We have defined a function, quickCheck, that takes an array and an element as arguments. Modify the function using indexOf() so that it returns true if the passed element exists on the array, and false if it does not.
 
-function quickCheck(arr, elem) {
-  if (arr.indexOf(elem) >= 0) {
-    return true;
+function filteredArray(arr, elem) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].indexOf(elem) == -1) {
+      newArr.push(arr[i]);
+    }
   }
-  return false;
+  return newArr;
 }
 
-console.log(quickCheck(["squash", "onions", "shallots"], "mushrooms"));
+console.log(
+  filteredArray(
+    [
+      [3, 2, 3],
+      [1, 6, 3],
+      [3, 13, 26],
+      [19, 3, 9],
+    ],
+    3
+  )
+);
