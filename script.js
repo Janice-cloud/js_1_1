@@ -1,46 +1,49 @@
-// Basic Data Structures: Create complex multi-dimensional arrays
+// Basic Data Structures: Add Key-Value Pairs to JavaScript Objects
+
 /* 
 
-Awesome! You have just learned a ton about arrays! This has been a fairly high level overview, and there is plenty more to learn about working with arrays, much of which you will see in later sections. But before moving on to looking at Objects, lets take one more look, and see how arrays can become a bit more complex than what we have seen in previous challenges.
+At their most basic, objects are just collections of key-value pairs. In other words, they are pieces of data (values) mapped to unique identifiers called properties (keys). Take a look at an example:
 
-One of the most powerful features when thinking of arrays as data structures, is that arrays can contain, or even be completely made up of other arrays. We have seen arrays that contain arrays in previous challenges, but fairly simple ones. However, arrays can contain an infinite depth of arrays that can contain other arrays, each with their own arbitrary levels of depth, and so on. In this way, an array can very quickly become very complex data structure, known as a multi-dimensional, or nested array. Consider the following example:
+const tekkenCharacter = {
+  player: 'Hwoarang',
+  fightingStyle: 'Tae Kwon Doe',
+  human: true
+};
+The above code defines a Tekken video game character object called tekkenCharacter. It has three properties, each of which map to a specific value. If you want to add an additional property, such as "origin", it can be done by assigning origin to the object:
 
-let nestedArray = [ // top, or first level - the outer most array
-  ['deep'], // an array within an array, 2 levels of depth
-  [
-    ['deeper'], ['deeper'] // 2 arrays nested 3 levels deep
-  ],
-  [
-    [
-      ['deepest'], ['deepest'] // 2 arrays nested 4 levels deep
-    ],
-    [
-      [
-        ['deepest-est?'] // an array nested 5 levels deep
-      ]
-    ]
-  ]
-];
+tekkenCharacter.origin = 'South Korea';
+This uses dot notation. If you were to observe the tekkenCharacter object, it will now include the origin property. Hwoarang also had distinct orange hair. You can add this property with bracket notation by doing:
 
-While this example may seem convoluted, this level of complexity is not unheard of, or even unusual, when dealing with large amounts of data. However, we can still very easily access the deepest levels of an array this complex with bracket notation:
+tekkenCharacter['hair color'] = 'dyed orange';
+Bracket notation is required if your property has a space in it or if you want to use a variable to name the property. In the above case, the property is enclosed in quotes to denote it as a string and will be added exactly as shown. Without quotes, it will be evaluated as a variable and the name of the property will be whatever value the variable is. Here's an example with a variable:
 
-console.log(nestedArray[2][1][0][0][0]);
-// logs: deepest-est?
-And now that we know where that piece of data is, we can reset it if we need to:
+const eyes = 'eye color';
 
-nestedArray[2][1][0][0][0] = 'deeper still';
+tekkenCharacter[eyes] = 'brown';
+After adding all the examples, the object will look like this:
 
-console.log(nestedArray[2][1][0][0][0]);
-// now logs: deeper still
+{
+  player: 'Hwoarang',
+  fightingStyle: 'Tae Kwon Doe',
+  human: true,
+  origin: 'South Korea',
+  'hair color': 'dyed orange',
+  'eye color': 'brown'
+};
+
 
 */
 
-// We have defined a variable, myNestedArray, set equal to an array. Modify myNestedArray, using any combination of strings, numbers, and booleans for data elements, so that it has exactly five levels of depth (remember, the outer-most array is level 1). Somewhere on the third level, include the string 'deep', on the fourth level, include the string 'deeper', and on the fifth level, include the string 'deepest'.
+// A foods object has been created with three entries. Using the syntax of your choice, add three more entries to it: bananas with a value of 13, grapes with a value of 35, and strawberries with a value of 27.
 
-let myNestedArray = [
-  ["unshift", false, 1, 2, 3, "complex", "nested"],
-  ["loop", "shift", 6, 7, 1000, "method"],
-  ["concat", false, true, "spread", "array", ["deep"]], // third level, include the string 'deep'
-  ["mutate", 1327.98, "splice", "slice", "push", [["deeper"]]], // fourth level, include the string 'deeper'
-  ["iterate", 1.3849, 7, "8.4876", "arbitrary", "depth", [[["deepest"]]]], //  fifth level, include the string 'deepest'.
-];
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+};
+
+foods.bananas = 13;
+foods.grapes = 35;
+foods.strawberries = 27;
+
+console.log(foods);
