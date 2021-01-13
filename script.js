@@ -1,30 +1,48 @@
-// Basic Data Structures: Use the delete Keyword to Remove Object Properties
+// Basic Data Structures: Check if an Object has a Property
 
 /* 
 
-Now you know what objects are and their basic features and advantages. In short, they are key-value stores which provide a flexible, intuitive way to structure data, and, they provide very fast lookup time. Throughout the rest of these challenges, we will describe several common operations you can perform on objects so you can become comfortable applying these useful data structures in your programs.
+Now we can add, modify, and remove keys from objects. But what if we just wanted to know if an object has a specific property? JavaScript provides us with two different ways to do this. One uses the hasOwnProperty() method and the other uses the in keyword. If we have an object users with a property of Alan, we could check for its presence in either of the following ways:
 
-In earlier challenges, we have both added to and modified an object's key-value pairs. Here we will see how we can remove a key-value pair from an object.
-
-Let's revisit our foods object example one last time. If we wanted to remove the apples key, we can remove it by using the delete keyword like this:
-
-delete foods.apples;
+users.hasOwnProperty('Alan');
+'Alan' in users;
+// both return true
 
 */
 
-// Use the delete keyword to remove the oranges, plums, and strawberries keys from the foods object.
+// We've created an object, users, with some users in it and a function isEveryoneHere, which we pass the users object to as an argument. Finish writing this function so that it returns true only if the users object contains all four names, Alan, Jeff, Sarah, and Ryan, as keys, and false otherwise.
 
-let foods = {
-  apples: 25,
-  oranges: 32,
-  plums: 28,
-  bananas: 13,
-  grapes: 35,
-  strawberries: 27,
+let users = {
+  Alan: {
+    age: 27,
+    online: true,
+  },
+  Jeff: {
+    age: 32,
+    online: true,
+  },
+  Sarah: {
+    age: 48,
+    online: true,
+  },
+  Ryan: {
+    age: 19,
+    online: true,
+  },
 };
 
-delete foods.oranges;
-delete foods.plums;
-delete foods.strawberries;
+function isEveryoneHere(obj) {
+  if (
+    users.hasOwnProperty("Alan") &&
+    users.hasOwnProperty("Jeff") &&
+    users.hasOwnProperty("Sarah") &&
+    users.hasOwnProperty("Ryan")
+  ) {
+    return true;
+  }
+  {
+    return false;
+  }
+}
 
-console.log(foods);
+console.log(isEveryoneHere(users));
