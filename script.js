@@ -1,48 +1,48 @@
-// Basic Data Structures: Check if an Object has a Property
+// Basic Data Structures: Iterate Through the Keys of an Object with a for...in Statement
 
 /* 
 
-Now we can add, modify, and remove keys from objects. But what if we just wanted to know if an object has a specific property? JavaScript provides us with two different ways to do this. One uses the hasOwnProperty() method and the other uses the in keyword. If we have an object users with a property of Alan, we could check for its presence in either of the following ways:
+Sometimes you may need to iterate through all the keys within an object. This requires a specific syntax in JavaScript called a for...in statement. For our users object, this could look like:
 
-users.hasOwnProperty('Alan');
-'Alan' in users;
-// both return true
+for (let user in users) {
+  console.log(user);
+}
+
+// logs:
+Alan
+Jeff
+Sarah
+Ryan
+In this statement, we defined a variable user, and as you can see, this variable was reset during each iteration to each of the object's keys as the statement looped through the object, resulting in each user's name being printed to the console. NOTE: Objects do not maintain an ordering to stored keys like arrays do; thus a key's position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key.
 
 */
 
-// We've created an object, users, with some users in it and a function isEveryoneHere, which we pass the users object to as an argument. Finish writing this function so that it returns true only if the users object contains all four names, Alan, Jeff, Sarah, and Ryan, as keys, and false otherwise.
+/*
+We've defined a function countOnline which accepts one argument (a users object). Use a for...in statement within this function to loop through the users object passed into the function and return the number of users whose online property is set to true. An example of a users object which could be passed to countOnline is shown below. Each user will have an online property with either a true or false value.
 
-let users = {
+
+*/
+
+let usersObj = {
   Alan: {
-    age: 27,
-    online: true,
+    online: false,
   },
   Jeff: {
-    age: 32,
     online: true,
   },
   Sarah: {
-    age: 48,
-    online: true,
-  },
-  Ryan: {
-    age: 19,
-    online: true,
+    online: false,
   },
 };
 
-function isEveryoneHere(obj) {
-  if (
-    users.hasOwnProperty("Alan") &&
-    users.hasOwnProperty("Jeff") &&
-    users.hasOwnProperty("Sarah") &&
-    users.hasOwnProperty("Ryan")
-  ) {
-    return true;
+function countOnline(usersObj) {
+  let result = 0;
+  for (let user in usersObj) {
+    if (usersObj[user].online === true) {
+      result++;
+    }
   }
-  {
-    return false;
-  }
+  return result;
 }
 
-console.log(isEveryoneHere(users));
+console.log(countOnline(usersObj)); // 1 
