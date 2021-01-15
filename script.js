@@ -1,4 +1,4 @@
-// Basic Algorithm Scripting: Convert Celsius to Fahrenheit
+// Basic Algorithm Scripting: Reverse a String
 
 /* 
 
@@ -8,9 +8,8 @@ You are given a variable celsius representing a temperature in Celsius. Use the 
 
 */
 
-function convertToF(celsius) {
-    let fahrenheit = celsius * 9/5 + 32;
-    return fahrenheit;
+function reverseString(str) {
+    return str.split("").reverse().join("");
   }
   
-  console.log(convertToF(30)); // 86
+  console.log(reverseString("hello"));
