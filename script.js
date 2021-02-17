@@ -1,30 +1,26 @@
-// Basic Algorithm Scripting: Find the Longest Word in a String
+// Basic Algorithm Scripting: Return Largest Numbers in Arrays
 
 /* 
-Return the length of the longest word in the provided sentence.
+Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
 
-Your response should be a number.
+Remember, you can iterate through an array with a simple for loop, and access each member with array syntax arr[i].
 
 */
 
-function findLongestWordLength(str) {
-  var words = str.split(' ');
-  var maxLength = 0;
-
-  for (var i = 0; i < words.length; i++) {
-    if (words[i].length > maxLength) {
-      maxLength = words[i].length;
-    }
-  }
-
-  return maxLength;
+function largestOfFour(arr) {
+  return arr.map(function(group) {
+    return group.reduce(function(prev, current) {
+      return current > prev ? current : prev;
+    });
+  });
 }
 
-console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]))
 
 /*
 Code Explanation
-Take the string and convert it into an array of words. Declare a variable to keep track of the maximum length and loop from 0 to the length of the array of words.
-
-Then check for the longest word by comparing the current word to the previous one and storing the new longest word. At the end of the loop just return the number value of the variable maxLength.
+we map all items within the main array to a new array using Array.prototype.map() and return this array as the final result
+within each inner array, we reduce its contents down to a single value using Array.prototype.reduce()
+the callback function passed to the reduce method takes the previous value and the current value and compares the two values
+if the current value is higher than the previous value we set it as the new previous value for comparison with the next item within the array or returns it to the map method callback if it’s the last item
 */
