@@ -1,30 +1,30 @@
-// Basic Algorithm Scripting: Factorialize a Number
+// Basic Algorithm Scripting: Find the Longest Word in a String
 
 /* 
-Return the factorial of the provided integer.
+Return the length of the longest word in the provided sentence.
 
-If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to n.
-
-Factorials are often represented with the shorthand notation n!
-
-For example: 5! = 1 * 2 * 3 * 4 * 5 = 120
-
-Only integers greater than or equal to zero will be supplied to the function.
+Your response should be a number.
 
 */
 
-function factorialize(num) {
-  for (var product = 1; num > 0; num--) {
-    product *= num;
+function findLongestWordLength(str) {
+  var words = str.split(' ');
+  var maxLength = 0;
+
+  for (var i = 0; i < words.length; i++) {
+    if (words[i].length > maxLength) {
+      maxLength = words[i].length;
+    }
   }
-  return product;
+
+  return maxLength;
 }
 
-console.log(factorialize(5));
+console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
 
 /*
 Code Explanation
-Since the return values for the function will always be greater than or equal to 1, product is initialized at one. For the case where the number is 0, the for loop condition will be false, but since product is initialized as 1, it will have the correct value when the return statement is executed.
+Take the string and convert it into an array of words. Declare a variable to keep track of the maximum length and loop from 0 to the length of the array of words.
 
-For all numbers passed to the function which are greater than one, the simple for loop will decrement num by one each iteration and recalculate product down to the value 1.
+Then check for the longest word by comparing the current word to the previous one and storing the new longest word. At the end of the loop just return the number value of the variable maxLength.
 */
